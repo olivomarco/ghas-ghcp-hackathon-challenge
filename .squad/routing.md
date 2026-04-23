@@ -6,12 +6,14 @@ How to decide who handles what.
 
 | Work Type | Route To | Examples |
 |-----------|----------|----------|
-| {domain 1} | {Name} | {example tasks} |
-| {domain 2} | {Name} | {example tasks} |
-| {domain 3} | {Name} | {example tasks} |
-| Code review | {Name} | Review PRs, check quality, suggest improvements |
-| Testing | {Name} | Write tests, find edge cases, verify fixes |
-| Scope & priorities | {Name} | What to build next, trade-offs, decisions |
+| Security, GHAS, vulnerabilities, scanning | Trinity | Set up code scanning, fix CVEs, configure Dependabot |
+| Backend, APIs, services, database | Morpheus | Build API endpoints, backend features, data layer |
+| Frontend, UI, design, CSS | Switch | Build UI components, style pages, responsive design |
+| DevOps, dev container, CI/CD, infra | Tank | Create .devcontainer, GitHub Actions, repo setup |
+| Content, docs, challenges, guides | Oracle | Write hackathon content, challenge guides, coach notes |
+| Architecture, scope, decisions | Neo | Architecture review, scope decisions, prioritization |
+| Code review | Neo | Review PRs, check quality, approve/reject |
+| Testing, QA, validation | Cypher | Write tests, validate challenges, verify fixes |
 | Session logging | Scribe | Automatic — never needs routing |
 
 ## Issue Routing
