@@ -1,0 +1,36 @@
+{
+  "name": "GHAS & GitHub Copilot Hackathon",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Juice Shop",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "cd app && npm install",
+  "postStartCommand": "echo '🧃 Run: cd app && npm start — then open http://localhost:3000'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "github.copilot-chat",
+        "GitHub.vscode-github-actions",
+        "GitHub.vscode-codeql",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        }
+      }
+    }
+  },
+  "remoteUser": "node"
+}

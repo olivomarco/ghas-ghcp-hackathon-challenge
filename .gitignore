@@ -5,3 +5,70 @@
 .squad/sessions/
 # Squad: SubSquad activation file (local to this machine)
 .squad-workstream
+
+# App
+node_modules/
+juiceshop.sqlite
+order_*.pdf
+!app/frontend/src/app
+app/uploads/complaints/*.*
+!app/uploads/complaints/.gitkeep
+app/ftp/legal.md
+package-lock.json
+app/i18n/*.json
+app/i18n/*.invalid
+!app/frontend/src/assets/i18n/*.json
+!app/data/static/i18n/*.json
+app/data/chatbot/*.*
+!app/data/chatbot/.gitkeep
+app/data/juiceshop.sqlite-journal
+
+# Build
+.nyc_output/
+.sass-cache/
+app/build/
+cache/
+dist/
+logs/
+app/vagrant/.vagrant/
+*.orig
+*.out
+*.log
+JSON
+JSON.map
+app/frontend/src/**/*.js
+/bom.json
+/bom.xml
+
+# IDEs
+.idea/
+.vscode/
+out/
+*.eml
+*.iml
+*.iws
+*.swp
+
+# Branch ghpages
+assets/
+!app/frontend/src/assets/
+
+# Custom configuration files
+app/config/*.yml
+!app/config/addo.yml
+!app/config/bodgeit.yml
+!app/config/ctf.yml
+!app/config/fbctf.yml
+!app/config/default.yml
+!app/config/juicebox.yml
+!app/config/quiet.yml
+!app/config/test.yml
+!app/config/7ms.yml
+!app/config/mozilla.yml
+!app/config/unsafe.yml
+!app/config/tutorial.yml
+!app/config/oss.yml
+!app/config/defcon33.yml
+
+# System Files
+.DS_Store
