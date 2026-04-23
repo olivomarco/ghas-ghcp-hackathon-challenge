@@ -32,17 +32,20 @@ This repository is part of a **GitHub Advanced Security (GHAS) + GitHub Copilot 
 
 Since this is an intentionally vulnerable training application, standard vulnerability disclosure doesn't apply in the traditional sense. However, learning responsible disclosure practices is valuable:
 
-### If you find a vulnerability in Juice Shop itself:
+### If you find a vulnerability in Juice Shop itself
+
 - Report it to the [upstream OWASP Juice Shop project](https://github.com/juice-shop/juice-shop/issues)
 - Follow their contribution guidelines
 
-### If you find a vulnerability in the hackathon infrastructure:
+### If you find a vulnerability in the hackathon infrastructure
+
 - **Do not** publicly disclose it before reporting
 - Contact the hackathon organizers directly
 - Provide a clear description of the issue and steps to reproduce
 - Allow reasonable time for a fix before any disclosure
 
-### Responsible Disclosure Best Practices (for learning):
+### Responsible Disclosure Best Practices (for learning)
+
 1. **Report privately first** — Use GitHub's private vulnerability reporting feature (Security tab > "Report a vulnerability")
 2. **Provide details** — Include reproduction steps, impact assessment, and suggested fix
 3. **Be patient** — Give maintainers time to respond and fix
@@ -56,4 +59,3 @@ This is a training/hackathon repository. There are no "supported versions" in th
 | Version | Status |
 | ------- | ------ |
 | main    | 🎓 Intentionally vulnerable — for training only |
-

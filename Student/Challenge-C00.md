@@ -19,6 +19,7 @@ Agents are specialized AI personas with specific instructions, domain knowledge,
 - **A backend architecture agent** — Knows the Express/Sequelize patterns in `app/routes/` and `app/models/`, helps design new API endpoints that fit the existing codebase
 
 Your agent file should include:
+
 - A clear description of what the agent does and when to use it
 - Specific instructions that shape how it responds
 - Context about the Juice Shop application relevant to the agent's domain
