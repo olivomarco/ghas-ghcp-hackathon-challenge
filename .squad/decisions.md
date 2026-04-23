@@ -57,6 +57,16 @@
 **What:** /Student/ folder for challenge markdown files, Juice Shop source at repo root (cloned), .devcontainer/ for dev environment, .github/workflows/ for CodeQL.
 **Why:** Clean WTH-inspired structure, no solutions, no coach guide.
 
+### 2026-04-23T00:03:00Z: User directive
+**By:** Marco Olivo (via Copilot)
+**What:** Move the Juice Shop application into a subfolder (e.g., `app/`) to clean up the repo root. Currently it's a mess with app files mixed with hackathon files.
+**Why:** User request — better repo organization for hackathon participants.
+
+### 2026-04-23T00:03:01Z: User directive
+**By:** Marco Olivo (via Copilot)
+**What:** Add challenges that instruct participants to create custom agents (.agent.md), custom prompt files (.prompt.md), and custom skills (SKILL.md) during the hackathon. Participants should learn to customize their Copilot experience.
+**Why:** User request — teaches advanced Copilot customization features.
+
 ## Governance
 
 - All meaningful changes require team consensus
