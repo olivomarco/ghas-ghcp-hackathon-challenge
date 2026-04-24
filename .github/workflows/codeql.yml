@@ -82,6 +82,9 @@ jobs:
           languages: ${{ matrix.language }}
           # security-extended includes more vulnerability patterns than the default
           queries: security-extended
+          # Use our custom config to exclude compiled output (app/build/) that
+          # causes parse errors and duplicates findings from source .ts files
+          config-file: ./.github/codeql/codeql-config.yml
 
       # ------------------------------------------------------------------
       # Step 3: Auto-build the project
