@@ -87,6 +87,11 @@
 **What:** Replace all emoji icons across 20 HTML files with Lucide Icons (https://lucide.dev) via CDN. MIT-licensed, stroke-based SVGs controllable via CSS, ~60KB gzipped. 13 icon mappings (e.g. 🔍→scan-search, 🧠→brain, 🛠️→wrench, ✅→circle-check, 🔒→shield-check, 🎨→palette, ⚙️→server, 🤖→bot). Added icon CSS with glow/hover effects, `lucide.createIcons()` in main.js.
 **Why:** Emoji rendered inconsistently across platforms and looked unprofessional. Lucide SVGs match the CIPHER cyberpunk aesthetic with neon stroke colors.
 
+### 2026-04-24T14:00:00Z: User directive
+**By:** Marco Olivo (via Copilot)
+**What:** Always keep markdown (.md) and HTML (.html) files aligned. When content exists in both formats (e.g., Student/Challenge-S00.md and docs/challenges/s00.html, or docs/LEARNING-OBJECTIVES.md and docs/learning-objectives.html), changes to one must be reflected in the other. Neither format should drift out of sync.
+**Why:** User request — captured for team memory
+
 ## Governance
 
 - All meaningful changes require team consensus
