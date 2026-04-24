@@ -67,6 +67,16 @@
 **What:** Add challenges that instruct participants to create custom agents (.agent.md), custom prompt files (.prompt.md), and custom skills (SKILL.md) during the hackathon. Participants should learn to customize their Copilot experience.
 **Why:** User request — teaches advanced Copilot customization features.
 
+### 2026-04-24T00:00:00Z: GitHub Pages site design direction
+**By:** Switch (Frontend Dev)
+**What:** Chose a "CIPHER" cyberpunk-terminal aesthetic for the docs site — dark backgrounds (#050810/#0a0f1a), neon accents per track (security=green, frontend=cyan, backend=pink, copilot=amber). Chakra Petch / Lexend / JetBrains Mono font stack. Pure static HTML/CSS/JS with JS-injected navigation (single `main.js` generates nav, footer, breadcrumbs, sidebar from `data-*` attributes). 22 pages total, zero build step.
+**Why:** Security/hacking hackathon demands edgy technical aesthetic, not corporate docs. JS-injected nav avoids duplicating 200+ lines of HTML across 22 files.
+
+### 2026-04-24T00:00:01Z: Placeholder secret patterns for push protection bypass
+**By:** Trinity (Security Engineer)
+**What:** Replaced two secrets flagged by GitHub Push Protection: Stripe `sk_live_` key → `sk_live_REPLACEME...` (breaks checksum), Twilio SID → `ACXX...` (all-X won't match regex). Replaced in `app/.env.example` and `app/config/secrets.example.js`.
+**Why:** Push protection was blocking pushes. Replacements preserve educational format while breaking scanner match.
+
 ## Governance
 
 - All meaningful changes require team consensus

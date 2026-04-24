@@ -8,3 +8,7 @@
 - **Challenge Flow:** Clone vulnerable app → fix security issues with GHAS + Copilot → enhance frontend → evolve backend
 
 ## Learnings
+- Set up GitHub Pages deployment workflow at `.github/workflows/pages.yml`. Triggers on push to `main` when `docs/**` changes, plus manual `workflow_dispatch`. Uses `actions/configure-pages@v5`, `actions/upload-pages-artifact@v3`, and `actions/deploy-pages@v4`. Deploys the `docs/` directory as a static site. No Jekyll processing (`.nojekyll` file added to `docs/`). No existing Pages config conflicts found.
+
+### GitHub Pages Session Logged (2026-04-24T00:00:00Z)
+- Orchestration log written by Scribe at `.squad/orchestration-log/2026-04-24-github-pages-tank.md`
