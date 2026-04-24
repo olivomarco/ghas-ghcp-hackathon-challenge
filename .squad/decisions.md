@@ -92,6 +92,11 @@
 **What:** Always keep markdown (.md) and HTML (.html) files aligned. When content exists in both formats (e.g., Student/Challenge-S00.md and docs/challenges/s00.html, or docs/LEARNING-OBJECTIVES.md and docs/learning-objectives.html), changes to one must be reflected in the other. Neither format should drift out of sync.
 **Why:** User request — captured for team memory
 
+### 2026-04-24T16:00:00Z: Exclude app/build/ from CodeQL scanning
+**By:** Trinity (Security Engineer)
+**What:** Created `.github/codeql/codeql-config.yml` with `paths-ignore` for `app/build`, `**/*.js.map`, `**/node_modules`, and `app/frontend/dist`. Updated CodeQL workflow to reference the config file.
+**Why:** CodeQL reported ~89 parse errors from scanning compiled JS output in `app/build/`. Excluding build artifacts eliminates noise and ensures findings reference actionable source `.ts` files.
+
 ## Governance
 
 - All meaningful changes require team consensus
