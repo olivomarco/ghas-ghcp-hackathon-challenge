@@ -64,7 +64,7 @@ jobs:
       # Step 1: Check out the repository code
       # ------------------------------------------------------------------
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # ------------------------------------------------------------------
       # Step 2: Initialize CodeQL
@@ -77,7 +77,7 @@ jobs:
       #   - security-and-quality: Security + code quality queries
       # ------------------------------------------------------------------
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
           # security-extended includes more vulnerability patterns than the default
@@ -94,7 +94,7 @@ jobs:
       # this step would compile the code so CodeQL can analyze it.
       # ------------------------------------------------------------------
       - name: Auto-build
-        uses: github/codeql-action/autobuild@v3
+        uses: github/codeql-action/autobuild@v4
 
       # ------------------------------------------------------------------
       # Step 4: Run CodeQL Analysis
@@ -105,6 +105,6 @@ jobs:
       # Copilot Autofix will automatically suggest fixes for many alerts!
       # ------------------------------------------------------------------
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           category: "/language:${{ matrix.language }}"
