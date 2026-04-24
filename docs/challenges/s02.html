@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s02">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-02: Fix Vulnerabilities with Copilot — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 60 min</span>
+        </div>
+        <h1>Challenge S-02: Fix Vulnerabilities with Copilot + Autofix</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Finding vulnerabilities is step one. Fixing them without breaking the application — that's where it gets interesting.</p>
+          <p>In this challenge, you'll pick at least 3 vulnerabilities from the code scanning alerts you documented in S-01 and fix them. You've got two powerful tools at your disposal: GitHub Copilot in your editor (ask it to explain the vulnerability, suggest a fix, or review your patch) and Copilot Autofix in the Security tab on github.com (hit "Generate fix" on an alert and let it propose a complete remediation).</p>
+          <p>Each fix should go into its own pull request with a clear description of what was wrong and how you addressed it. The goal isn't just to make the alert disappear — it's to understand why the code was vulnerable and why your fix actually solves the problem.</p>
+
+          <div class="power-move">
+            <p><strong>Power move:</strong> If you've done Challenge C-00, consider creating a security-focused custom agent (<code>.github/agents/</code>) that knows about OWASP patterns and the Juice Shop's vulnerability surface. A well-instructed agent can speed up both diagnosis and remediation.</p>
+          </div>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Select at least 3 vulnerabilities from the code scanning alerts</li>
+            <li>Use GitHub Copilot in your editor to understand and remediate each vulnerability</li>
+            <li>Try Copilot Autofix from the Security tab (click "Generate fix" on an alert) for at least one vulnerability</li>
+            <li>Create pull requests for each fix with descriptive commit messages</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>At least 3 code scanning vulnerabilities addressed</li>
+            <li>GitHub Copilot used to assist with understanding and fixing vulnerabilities</li>
+            <li>Copilot Autofix tried on at least one alert from the Security tab</li>
+            <li>Pull requests created for each fix with clear descriptions of the vulnerability and the remediation</li>
+            <li>Fixed alerts show as resolved in the Security tab</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning" target="_blank" rel="noopener">About Copilot Autofix for code scanning</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning" target="_blank" rel="noopener">Using GitHub Copilot to fix code scanning alerts</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository" target="_blank" rel="noopener">Managing code scanning alerts</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

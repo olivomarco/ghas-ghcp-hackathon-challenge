@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s00">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-00: Prerequisites &amp; Security Setup — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 30 min</span>
+        </div>
+        <h1>Challenge S-00: Prerequisites &amp; Security Setup</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Every security journey starts with getting your environment right. In this challenge, you'll fork the repository, spin up a development environment, and enable GitHub Advanced Security (GHAS) on your fork.</p>
+          <p>This is the foundation for everything that follows. GHAS gives you code scanning, secret scanning, Dependabot alerts, and more — but none of it works until you flip the switches. By the end of this challenge, your repo will be wired up and ready for the real work ahead.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Fork the hackathon repository to your own GitHub account</li>
+            <li>Open the project in a GitHub Codespace or local devcontainer</li>
+            <li>Enable all GitHub Advanced Security features in your fork's settings (Settings &gt; Code security and analysis)</li>
+            <li>Confirm the dependency graph is active and populated</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Repository forked to your account</li>
+            <li>Development environment running (Codespace or devcontainer)</li>
+            <li>GitHub Advanced Security is enabled on the repository</li>
+            <li>Code scanning, secret scanning, and Dependabot alerts are all turned on</li>
+            <li>Dependency graph shows detected dependencies</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">Setting up GitHub Advanced Security</a></li>
+            <li><a href="https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository" target="_blank" rel="noopener">Creating a codespace for a repository</a></li>
+            <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository" target="_blank" rel="noopener">Configuring code security and analysis</a></li>
+            <li><a href="https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph" target="_blank" rel="noopener">About the dependency graph</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

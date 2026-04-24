@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-page="getting-started">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — GHAS &amp; Copilot Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container page-breadcrumbs">
+    <div class="breadcrumbs" id="breadcrumbs"></div>
+  </div>
+
+  <main class="container page-main" style="padding-top:1rem;">
+    <div class="page-header" style="text-align:left; padding-top:1rem;">
+      <h1>Getting Started</h1>
+      <p>Everything you need to set up your environment and start hacking.</p>
+    </div>
+
+    <!-- Prerequisites -->
+    <section class="feature-section">
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>A <strong>GitHub account</strong> (free tier works)</li>
+        <li><strong>GitHub Copilot</strong> access (free tier or subscription)</li>
+        <li>One of:
+          <ul>
+            <li><a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a> (recommended — nothing to install)</li>
+            <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> + <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener">Docker Desktop</a> for local dev containers</li>
+          </ul>
+        </li>
+        <li>Basic familiarity with JavaScript/TypeScript and web applications</li>
+      </ul>
+      <blockquote>
+        <p><strong>Note:</strong> To use GitHub Advanced Security features for free, make sure your repository is <strong>public</strong>.</p>
+      </blockquote>
+    </section>
+
+    <!-- Option A -->
+    <section class="feature-section">
+      <h2>Option A: GitHub Codespaces (Recommended)</h2>
+      <p>The fastest way to get started. No local setup required — everything runs in the cloud.</p>
+      <ol>
+        <li><strong>Fork</strong> the hackathon repository to your own GitHub account</li>
+        <li>Click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong></li>
+        <li>Wait for the dev container to build and dependencies to install</li>
+        <li>Open a terminal and run:
+          <pre><code class="language-bash">cd app && npm start</code></pre>
+          Juice Shop will be available at port 3000.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Option B -->
+    <section class="feature-section">
+      <h2>Option B: Local Dev Container</h2>
+      <p>If you prefer working locally with VS Code and Docker.</p>
+      <ol>
+        <li><strong>Fork</strong> and <strong>clone</strong> the repository</li>
+        <li>Open the folder in VS Code</li>
+        <li>When prompted, click <strong>Reopen in Container</strong> (requires Docker Desktop running)</li>
+        <li>Once the container is built, open a terminal and run:
+          <pre><code class="language-bash">cd app && npm start</code></pre>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Repository Structure -->
+    <section class="feature-section">
+      <h2>Repository Structure</h2>
+      <table>
+        <thead>
+          <tr><th>Folder</th><th>Contents</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>app/</code></td><td>OWASP Juice Shop application (all source code, configs, tests)</td></tr>
+          <tr><td><code>Student/</code></td><td>Hackathon challenge instructions</td></tr>
+          <tr><td><code>docs/</code></td><td>Documentation (you're reading it!)</td></tr>
+          <tr><td><code>.github/</code></td><td>GitHub Actions workflows and Dependabot config</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Next Steps -->
+    <section style="text-align:center; padding:3rem 0;">
+      <h2 class="text-gradient">Ready to begin?</h2>
+      <p style="margin-bottom:1.5rem;">Head to the challenges and start with the Security track.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="challenges.html" class="btn btn-primary">View Challenges →</a>
+        <a href="challenges/s00.html" class="btn btn-secondary">Jump to S-00</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

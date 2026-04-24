@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="backend" data-challenge="b02">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B-02: Implementation with Copilot — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-backend">Backend Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 60 min</span>
+        </div>
+        <h1>Challenge B-02: Implementation with Copilot</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>You've got the designs. Now build them.</p>
+          <p>Use GitHub Copilot to implement the 2 features you designed in B-01. This isn't about writing code as fast as possible — it's about writing code that's correct, secure, and maintainable. Validate all inputs. Handle errors gracefully. Think about what happens when someone sends unexpected data, hits an endpoint without authentication, or tries to access resources they shouldn't.</p>
+          <p>Copilot can generate route handlers, model definitions, database queries, and middleware in seconds. Your job is to guide it, review what it produces, and make sure the result actually matches your API contracts.</p>
+          <p>Create pull requests for your work with clear descriptions of what each feature does and why.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Implement the 2 backend features designed in B-01</li>
+            <li>Use GitHub Copilot to assist with code generation — routes, controllers, models, queries</li>
+            <li>Add input validation on all endpoints (reject malformed requests before they hit business logic)</li>
+            <li>Implement proper error handling and appropriate HTTP status codes</li>
+            <li>Apply security best practices: authentication checks, authorization enforcement, no data leakage in error messages</li>
+            <li>Create pull requests with descriptive titles and bodies</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>2 backend features fully implemented and functional</li>
+            <li>GitHub Copilot used during implementation</li>
+            <li>Input validation present on all new endpoints</li>
+            <li>Error handling returns appropriate HTTP status codes and safe error messages</li>
+            <li>Security checks in place (authentication, authorization)</li>
+            <li>Pull requests created with clear descriptions</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://expressjs.com/en/guide/using-middleware.html" target="_blank" rel="noopener">Express.js middleware guide</a></li>
+            <li><a href="https://express-validator.github.io/docs/" target="_blank" rel="noopener">Input validation with express-validator</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP Input Validation Cheat Sheet</a></li>
+            <li><a href="https://nodejs.org/en/learn/getting-started/security-best-practices" target="_blank" rel="noopener">Node.js security best practices</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

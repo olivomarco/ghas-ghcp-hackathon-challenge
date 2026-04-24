@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-page="security-features">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Features Reference — GHAS &amp; Copilot Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container page-breadcrumbs">
+    <div class="breadcrumbs" id="breadcrumbs"></div>
+  </div>
+
+  <main class="container page-main" style="padding-top:1rem;">
+    <div class="page-header" style="text-align:left; padding-top:1rem;">
+      <h1>GitHub Advanced Security (GHAS) Features Reference</h1>
+      <p>A reference guide listing available GHAS features on github.com — what each feature does and where to find it.</p>
+    </div>
+
+    <blockquote>
+      <p><strong>Note:</strong> On <strong>public repositories</strong>, most of these features are <strong>free</strong>. On private repositories, a GitHub Advanced Security license is required.</p>
+    </blockquote>
+
+    <!-- 1. Code Scanning -->
+    <section class="feature-section">
+      <h2><span class="section-number">1</span> Code Scanning (CodeQL)</h2>
+      <p>Analyzes your source code to find security vulnerabilities and coding errors. CodeQL treats code as data — it builds a database of your codebase and runs queries against it to find patterns that indicate vulnerabilities (SQL injection, XSS, path traversal, etc.).</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Settings</strong> → <strong>Code security</strong> → <strong>Code scanning</strong></li>
+          <li><strong>Security</strong> tab → <strong>Code scanning alerts</strong></li>
+          <li>Pull request <strong>Checks</strong> tab (inline annotations on PRs)</li>
+        </ul>
+      </div>
+      <h3>Key Concepts</h3>
+      <ul>
+        <li><strong>Alerts</strong> — Individual findings with severity, description, and affected code location</li>
+        <li><strong>Query suites</strong> — Collections of security queries (<code>default</code>, <code>security-extended</code>, <code>security-and-quality</code>)</li>
+        <li><strong>SARIF</strong> — The standard format CodeQL uses to report results</li>
+        <li><strong>Custom queries</strong> — You can write your own CodeQL queries for project-specific patterns</li>
+      </ul>
+    </section>
+
+    <!-- 2. Copilot Autofix -->
+    <section class="feature-section">
+      <h2><span class="section-number">2</span> Copilot Autofix</h2>
+      <p>Uses AI to automatically generate fix suggestions for code scanning alerts. When CodeQL finds a vulnerability, Copilot Autofix analyzes the alert and proposes a code change to fix it — often with an explanation of why the fix works.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Security</strong> tab → <strong>Code scanning alerts</strong> → Click any alert → Look for the <strong>"Autofix"</strong> suggestion</li>
+          <li>Pull request <strong>code scanning</strong> annotations may include autofix suggestions</li>
+        </ul>
+      </div>
+      <h3>Key Details</h3>
+      <ul>
+        <li><strong>Free on public repositories</strong> <i data-lucide="circle-check"></i></li>
+        <li>Suggestions are AI-generated — always review before applying</li>
+        <li>Works for many common vulnerability patterns (injection, XSS, path traversal, etc.)</li>
+        <li>Can generate fixes across multiple files when needed</li>
+        <li>Available for JavaScript/TypeScript, Python, Java, C#, Go, Ruby, and more</li>
+      </ul>
+    </section>
+
+    <!-- 3. Secret Scanning -->
+    <section class="feature-section">
+      <h2><span class="section-number">3</span> Secret Scanning</h2>
+      <p>Scans your repository for accidentally committed secrets like API keys, tokens, passwords, and connection strings. GitHub partners with service providers (AWS, Azure, Stripe, etc.) to detect their specific secret formats.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Settings</strong> → <strong>Code security</strong> → <strong>Secret scanning</strong></li>
+          <li><strong>Security</strong> tab → <strong>Secret scanning alerts</strong></li>
+        </ul>
+      </div>
+      <h3>Key Concepts</h3>
+      <ul>
+        <li><strong>Partner patterns</strong> — Secrets matching known provider formats (GitHub tokens, AWS keys, etc.)</li>
+        <li><strong>Custom patterns</strong> — Define your own regex patterns to match organization-specific secrets</li>
+        <li><strong>Push protection</strong> — Blocks pushes that contain detected secrets BEFORE they reach the repo</li>
+        <li><strong>Validity checks</strong> — Some secrets are checked against the provider to confirm they're active/valid</li>
+        <li><strong>Non-provider patterns</strong> — Generic patterns like passwords, private keys, and connection strings</li>
+      </ul>
+    </section>
+
+    <!-- 4. Push Protection -->
+    <section class="feature-section">
+      <h2><span class="section-number">4</span> Push Protection</h2>
+      <p>Prevents secrets from being pushed to the repository in the first place. When you <code>git push</code>, GitHub scans the content and blocks the push if it detects a secret — showing you exactly what was found and where.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Settings</strong> → <strong>Code security</strong> → <strong>Push protection</strong></li>
+          <li>You'll see it in action when you try to push code containing a secret</li>
+        </ul>
+      </div>
+      <h3>Key Details</h3>
+      <ul>
+        <li>Runs on every <code>git push</code> — no workflow needed</li>
+        <li>Authors can bypass with a reason (but the bypass is logged)</li>
+        <li>Organization admins can enforce that bypasses are not allowed</li>
+        <li>Covers the same patterns as secret scanning</li>
+      </ul>
+    </section>
+
+    <!-- 5. Dependabot -->
+    <section class="feature-section">
+      <h2><span class="section-number">5</span> Dependabot</h2>
+
+      <h3>5a. Dependabot Alerts</h3>
+      <p>Monitors your dependency manifests (<code>package.json</code>, <code>requirements.txt</code>, etc.) and alerts you when a dependency has a known vulnerability listed in the GitHub Advisory Database.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Security</strong> tab → <strong>Dependabot alerts</strong></li>
+          <li><strong>Insights</strong> tab → <strong>Dependency graph</strong></li>
+        </ul>
+      </div>
+
+      <h3>5b. Dependabot Security Updates</h3>
+      <p>Automatically creates pull requests to update vulnerable dependencies to the minimum non-vulnerable version.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Settings</strong> → <strong>Code security</strong> → <strong>Dependabot security updates</strong></li>
+          <li><strong>Pull Requests</strong> tab (PRs opened by @dependabot)</li>
+        </ul>
+      </div>
+
+      <h3>5c. Dependabot Version Updates</h3>
+      <p>Proactively creates pull requests to keep dependencies up to date, even if there's no known vulnerability. Helps you stay current and reduces the risk window.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li>Configured via <code>.github/dependabot.yml</code></li>
+          <li><strong>Pull Requests</strong> tab (PRs opened by @dependabot)</li>
+          <li><strong>Insights</strong> tab → <strong>Dependency graph</strong> → <strong>Dependabot</strong> tab</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Dependency Graph -->
+    <section class="feature-section">
+      <h2><span class="section-number">6</span> Dependency Graph &amp; Dependency Review</h2>
+      <h3>Dependency Graph</h3>
+      <p>Shows a complete picture of all your project's dependencies — direct and transitive. Useful for understanding your software supply chain.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong> <strong>Insights</strong> tab → <strong>Dependency graph</strong></p>
+      </div>
+
+      <h3>Dependency Review</h3>
+      <p>Shows dependency changes introduced in a pull request, including any new vulnerabilities. Helps reviewers understand the security impact of dependency changes before merging.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong> Pull request <strong>Files changed</strong> tab → Rich diff for lock files. Can be enforced via the <code>dependency-review-action</code> GitHub Action.</p>
+      </div>
+    </section>
+
+    <!-- 7. Security Overview -->
+    <section class="feature-section">
+      <h2><span class="section-number">7</span> Security Overview (Organization-level)</h2>
+      <p>Provides a bird's-eye view of security findings across all repositories in an organization. Shows trends, alert counts, and coverage metrics.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong> <strong>Organization</strong> → <strong>Security</strong> tab → <strong>Overview</strong></p>
+      </div>
+      <h3>Key Views</h3>
+      <ul>
+        <li><strong>Risk view</strong> — Repositories sorted by number of open alerts</li>
+        <li><strong>Coverage view</strong> — Which repos have security features enabled</li>
+        <li><strong>Trends</strong> — Alert open/close rates over time</li>
+      </ul>
+    </section>
+
+    <!-- 8. Security Campaigns -->
+    <section class="feature-section">
+      <h2><span class="section-number">8</span> Security Campaigns</h2>
+      <p>Allows security teams to organize code scanning alerts into focused remediation campaigns. A campaign groups related alerts across repositories, sets a target deadline, assigns developer ownership, and tracks progress.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong> <strong>Organization</strong> → <strong>Security</strong> tab → <strong>Campaigns</strong></p>
+      </div>
+      <h3>Key Concepts</h3>
+      <ul>
+        <li><strong>Campaign creation</strong> — Select alerts by filter criteria and group them into a campaign</li>
+        <li><strong>Developer assignment</strong> — Alert remediation is assigned to developers who own the relevant code</li>
+        <li><strong>Progress tracking</strong> — Dashboard shows alerts fixed vs. remaining, with burndown visibility</li>
+        <li><strong>Copilot Autofix integration</strong> — Developers can use Autofix suggestions within campaign alerts</li>
+        <li><strong>Target dates</strong> — Set deadlines to drive timely remediation</li>
+      </ul>
+      <blockquote class="note-warning">
+        <p><strong>Requirements:</strong> GitHub Team plan or higher, plus a GitHub Code Security license.</p>
+      </blockquote>
+    </section>
+
+    <!-- 9. Security Advisories -->
+    <section class="feature-section">
+      <h2><span class="section-number">9</span> Security Advisories</h2>
+      <p>Lets maintainers privately discuss, fix, and publish information about security vulnerabilities in their repository. Supports the responsible disclosure workflow.</p>
+      <div class="where-to-find">
+        <p><strong>Where to find it:</strong></p>
+        <ul>
+          <li><strong>Security</strong> tab → <strong>Advisories</strong></li>
+          <li><strong>Security</strong> tab → <strong>Report a vulnerability</strong> (for reporters)</li>
+        </ul>
+      </div>
+      <h3>Key Concepts</h3>
+      <ul>
+        <li><strong>Private vulnerability reporting</strong> — External researchers can report vulnerabilities privately</li>
+        <li><strong>Temporary private forks</strong> — Fix vulnerabilities in private before disclosing</li>
+        <li><strong>CVE assignment</strong> — Request a CVE identifier directly from GitHub</li>
+      </ul>
+    </section>
+
+    <!-- Quick Access Cheat Sheet -->
+    <section style="margin-top:3rem;">
+      <h2>Quick Access Cheat Sheet</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>Navigation Path</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Code scanning alerts</td><td>Security tab → Code scanning</td></tr>
+          <tr><td>Copilot Autofix</td><td>Security tab → Code scanning → Click alert → Autofix</td></tr>
+          <tr><td>Secret scanning alerts</td><td>Security tab → Secret scanning</td></tr>
+          <tr><td>Dependabot alerts</td><td>Security tab → Dependabot</td></tr>
+          <tr><td>Dependency graph</td><td>Insights tab → Dependency graph</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

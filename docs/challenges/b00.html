@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="backend" data-challenge="b00">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B-00: API Discovery &amp; Documentation — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-backend">Backend Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 30 min</span>
+        </div>
+        <h1>Challenge B-00: API Discovery &amp; Documentation</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>You can't extend a backend you don't understand. The Juice Shop runs on Express.js with a Node.js backend, and it has dozens of API endpoints — many of them undocumented, some of them intentionally insecure. Before you build anything new, you need to map what already exists.</p>
+          <p>In this challenge, you'll explore the backend codebase, trace how requests flow from routes to controllers to the database, and use GitHub Copilot to help you document the existing API surface. Understanding the data model, the authentication flow, and the middleware stack gives you the context to build features that actually fit the architecture.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Explore the Juice Shop backend codebase: routes, controllers, models, middleware</li>
+            <li>Use GitHub Copilot to help document existing API endpoints (method, path, purpose, authentication requirements)</li>
+            <li>Map the data model and understand the database structure</li>
+            <li>Identify the authentication and authorization patterns used in the application</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>API documentation created covering existing endpoints (method, path, description, auth requirements)</li>
+            <li>Data model and database structure understood and documented</li>
+            <li>Authentication/authorization flow documented</li>
+            <li>GitHub Copilot used to assist with code exploration and documentation</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://expressjs.com/en/guide/routing.html" target="_blank" rel="noopener">Express.js routing guide</a></li>
+            <li><a href="https://pwning.owasp-juice-shop.com/companion-guide/latest/part1/architecture.html" target="_blank" rel="noopener">OWASP Juice Shop architecture</a></li>
+            <li><a href="https://swagger.io/resources/articles/documenting-apis-with-swagger/" target="_blank" rel="noopener">RESTful API documentation best practices</a></li>
+            <li><a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/using-github-copilot-chat-in-your-ide" target="_blank" rel="noopener">GitHub Copilot Chat for code exploration</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

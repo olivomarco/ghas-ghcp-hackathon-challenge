@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="backend" data-challenge="b03">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B-03: Testing &amp; Documentation — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-backend">Backend Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge B-03: Testing &amp; Documentation</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Code that isn't tested is code you're just hoping works. In this final backend challenge, you'll write tests for the endpoints you built in B-02, make sure they pass, and update the API documentation to reflect your additions.</p>
+          <p>Use GitHub Copilot to generate test cases — it's good at this. But don't just accept what it generates blindly. Think about the edge cases: What happens with empty input? With extremely long strings? With missing authentication? With an ID that doesn't exist? The best tests are the ones that catch the bugs you didn't think of.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Write tests for all new API endpoints implemented in B-02</li>
+            <li>Cover both success cases and failure cases (invalid input, unauthorized access, missing resources)</li>
+            <li>Run the test suite and ensure all tests pass</li>
+            <li>Update the API documentation created in B-00 to include the new endpoints</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Tests written for all new endpoints covering success and error scenarios</li>
+            <li>GitHub Copilot used to assist with test generation</li>
+            <li>All tests pass when the test suite is run</li>
+            <li>API documentation updated to include the new endpoints (method, path, description, request/response examples)</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://jestjs.io/docs/getting-started" target="_blank" rel="noopener">Testing Express APIs with Jest</a></li>
+            <li><a href="https://github.com/ladjs/supertest#readme" target="_blank" rel="noopener">Supertest for HTTP testing</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing" target="_blank" rel="noopener">Test-driven development with Node.js</a></li>
+            <li><a href="https://swagger.io/resources/articles/documenting-apis-with-swagger/" target="_blank" rel="noopener">API documentation best practices</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s04">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-04: Secret Scanning &amp; Push Protection — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge S-04: Secret Scanning &amp; Push Protection</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Secrets in source code are one of the most common — and most preventable — security failures. An API key, a database password, a cloud credential committed to a repo can be found by attackers in minutes. And once a secret hits the git history, just deleting the file doesn't help. It's in the commits forever.</p>
+          <p>GitHub's secret scanning detects secrets that have already been committed. Push protection goes a step further: it blocks the commit <em>before</em> it lands in the repository. In this challenge, you'll enable both features, test push protection by attempting to push a commit containing a fake secret, and then implement a proper secrets management pattern so the application handles credentials correctly.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Enable secret scanning on your repository</li>
+            <li>Enable push protection</li>
+            <li>Attempt to push a commit containing a test/fake secret and observe push protection blocking it</li>
+            <li>Implement a proper secrets management pattern (environment variables, GitHub Secrets, or a secrets manager)</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Secret scanning enabled in repository settings</li>
+            <li>Push protection enabled</li>
+            <li>Push protection successfully blocked a commit containing a secret (screenshot or documented evidence)</li>
+            <li>Proper secrets management pattern implemented — no hardcoded secrets in source code</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning" target="_blank" rel="noopener">About secret scanning</a></li>
+            <li><a href="https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection" target="_blank" rel="noopener">About push protection</a></li>
+            <li><a href="https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection" target="_blank" rel="noopener">Working with push protection</a></li>
+            <li><a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions" target="_blank" rel="noopener">Using secrets in GitHub Actions</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

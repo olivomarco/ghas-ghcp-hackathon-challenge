@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenges">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges — GHAS &amp; Copilot Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container page-breadcrumbs">
+    <div class="breadcrumbs" id="breadcrumbs"></div>
+  </div>
+
+  <main class="container page-main" style="padding-top:1rem;">
+    <div class="page-header" style="text-align:left; padding-top:1rem;">
+      <h1>Hackathon Challenges</h1>
+      <p>8–10 hours of breaking, fixing, and building a real-world web application — with GitHub Copilot as your AI pair programmer and GitHub Advanced Security watching your back.</p>
+    </div>
+
+    <!-- Overview Table -->
+    <section style="margin-bottom:3rem;">
+      <h2>Tracks at a Glance</h2>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>Track</th><th>Challenge</th><th>Title</th><th>Est. Time</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="6"><strong>Security</strong></td><td>S-00</td><td><a href="challenges/s00.html">Prerequisites &amp; Security Setup</a></td><td>30 min</td></tr>
+            <tr><td>S-01</td><td><a href="challenges/s01.html">Enable Code Scanning &amp; Discover Vulnerabilities</a></td><td>45 min</td></tr>
+            <tr><td>S-02</td><td><a href="challenges/s02.html">Fix Vulnerabilities with Copilot + Autofix</a></td><td>60 min</td></tr>
+            <tr><td>S-03</td><td><a href="challenges/s03.html">Dependabot &amp; Supply Chain Security</a></td><td>45 min</td></tr>
+            <tr><td>S-04</td><td><a href="challenges/s04.html">Secret Scanning &amp; Push Protection</a></td><td>45 min</td></tr>
+            <tr><td>S-05</td><td><a href="challenges/s05.html">Security Campaigns (Advanced)</a></td><td>45 min</td></tr>
+            <tr><td rowspan="4"><strong>Frontend</strong></td><td>F-00</td><td><a href="challenges/f00.html">Project Setup &amp; UI Analysis</a></td><td>30 min</td></tr>
+            <tr><td>F-01</td><td><a href="challenges/f01.html">Design System &amp; Component Planning</a></td><td>45 min</td></tr>
+            <tr><td>F-02</td><td><a href="challenges/f02.html">Build Modern UI Components</a></td><td>60 min</td></tr>
+            <tr><td>F-03</td><td><a href="challenges/f03.html">Integration &amp; Polish</a></td><td>45 min</td></tr>
+            <tr><td rowspan="4"><strong>Backend</strong></td><td>B-00</td><td><a href="challenges/b00.html">API Discovery &amp; Documentation</a></td><td>30 min</td></tr>
+            <tr><td>B-01</td><td><a href="challenges/b01.html">Feature Design</a></td><td>45 min</td></tr>
+            <tr><td>B-02</td><td><a href="challenges/b02.html">Implementation with Copilot</a></td><td>60 min</td></tr>
+            <tr><td>B-03</td><td><a href="challenges/b03.html">Testing &amp; Documentation</a></td><td>45 min</td></tr>
+            <tr><td><strong>Copilot</strong></td><td>C-00</td><td><a href="challenges/c00.html">Customize Your Copilot Experience</a></td><td>60 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Security Track -->
+    <section class="track-section" id="security">
+      <div class="track-header">
+        <div class="track-icon" style="background:var(--accent-green-dim); color:var(--accent-green);"><i data-lucide="shield-check"></i></div>
+        <h2>Security Track</h2>
+      </div>
+      <div class="challenge-grid">
+        <a href="challenges/s00.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-00</span><span class="badge badge-time">30 min</span></div>
+          <h3>Prerequisites &amp; Security Setup</h3>
+          <p>Fork the repo, spin up a dev environment, and enable GitHub Advanced Security.</p>
+        </a>
+        <a href="challenges/s01.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-01</span><span class="badge badge-time">45 min</span></div>
+          <h3>Enable Code Scanning &amp; Discover Vulnerabilities</h3>
+          <p>Enable CodeQL, trigger your first scan, and review the security alerts.</p>
+        </a>
+        <a href="challenges/s02.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-02</span><span class="badge badge-time">60 min</span></div>
+          <h3>Fix Vulnerabilities with Copilot + Autofix</h3>
+          <p>Pick at least 3 vulnerabilities and fix them using Copilot and Autofix.</p>
+        </a>
+        <a href="challenges/s03.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-03</span><span class="badge badge-time">45 min</span></div>
+          <h3>Dependabot &amp; Supply Chain Security</h3>
+          <p>Enable Dependabot, review dependency vulnerabilities, and merge security PRs.</p>
+        </a>
+        <a href="challenges/s04.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-04</span><span class="badge badge-time">45 min</span></div>
+          <h3>Secret Scanning &amp; Push Protection</h3>
+          <p>Detect committed secrets, test push protection, and implement proper secrets management.</p>
+        </a>
+        <a href="challenges/s05.html" class="card challenge-card card-link" data-track="security">
+          <div class="card-header"><span class="challenge-label">S-05</span><span class="badge badge-time">45 min</span></div>
+          <h3>Security Campaigns (Advanced)</h3>
+          <p>Organize alerts into coordinated remediation campaigns at the organization level.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Frontend Track -->
+    <section class="track-section" id="frontend">
+      <div class="track-header">
+        <div class="track-icon" style="background:var(--accent-cyan-dim); color:var(--accent-cyan);"><i data-lucide="palette"></i></div>
+        <h2>Frontend Track</h2>
+      </div>
+      <div class="challenge-grid">
+        <a href="challenges/f00.html" class="card challenge-card card-link" data-track="frontend">
+          <div class="card-header"><span class="challenge-label">F-00</span><span class="badge badge-time">30 min</span></div>
+          <h3>Project Setup &amp; UI Analysis</h3>
+          <p>Run the app, explore the Angular frontend, and document current design issues.</p>
+        </a>
+        <a href="challenges/f01.html" class="card challenge-card card-link" data-track="frontend">
+          <div class="card-header"><span class="challenge-label">F-01</span><span class="badge badge-time">45 min</span></div>
+          <h3>Design System &amp; Component Planning</h3>
+          <p>Define a modern design system and plan which components to redesign.</p>
+        </a>
+        <a href="challenges/f02.html" class="card challenge-card card-link" data-track="frontend">
+          <div class="card-header"><span class="challenge-label">F-02</span><span class="badge badge-time">60 min</span></div>
+          <h3>Build Modern UI Components</h3>
+          <p>Redesign at least 3 components with responsive, accessible, polished styling.</p>
+        </a>
+        <a href="challenges/f03.html" class="card challenge-card card-link" data-track="frontend">
+          <div class="card-header"><span class="challenge-label">F-03</span><span class="badge badge-time">45 min</span></div>
+          <h3>Integration &amp; Polish</h3>
+          <p>Integrate components into the app and ensure visual consistency across pages.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Backend Track -->
+    <section class="track-section" id="backend">
+      <div class="track-header">
+        <div class="track-icon" style="background:var(--accent-pink-dim); color:var(--accent-pink);"><i data-lucide="server"></i></div>
+        <h2>Backend Track</h2>
+      </div>
+      <div class="challenge-grid">
+        <a href="challenges/b00.html" class="card challenge-card card-link" data-track="backend">
+          <div class="card-header"><span class="challenge-label">B-00</span><span class="badge badge-time">30 min</span></div>
+          <h3>API Discovery &amp; Documentation</h3>
+          <p>Explore the Express.js backend: routes, models, middleware, and auth flow.</p>
+        </a>
+        <a href="challenges/b01.html" class="card challenge-card card-link" data-track="backend">
+          <div class="card-header"><span class="challenge-label">B-01</span><span class="badge badge-time">45 min</span></div>
+          <h3>Feature Design</h3>
+          <p>Design 2 new backend features with complete API contracts.</p>
+        </a>
+        <a href="challenges/b02.html" class="card challenge-card card-link" data-track="backend">
+          <div class="card-header"><span class="challenge-label">B-02</span><span class="badge badge-time">60 min</span></div>
+          <h3>Implementation with Copilot</h3>
+          <p>Build your features with Copilot, adding validation, error handling, and security.</p>
+        </a>
+        <a href="challenges/b03.html" class="card challenge-card card-link" data-track="backend">
+          <div class="card-header"><span class="challenge-label">B-03</span><span class="badge badge-time">45 min</span></div>
+          <h3>Testing &amp; Documentation</h3>
+          <p>Write tests for all new endpoints and update the API documentation.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Copilot Track -->
+    <section class="track-section" id="copilot">
+      <div class="track-header">
+        <div class="track-icon" style="background:var(--accent-amber-dim); color:var(--accent-amber);"><i data-lucide="bot"></i></div>
+        <h2>Copilot Customization</h2>
+      </div>
+      <div class="challenge-grid">
+        <a href="challenges/c00.html" class="card challenge-card card-link" data-track="copilot">
+          <div class="card-header"><span class="challenge-label">C-00</span><span class="badge badge-time">60 min</span></div>
+          <h3>Customize Your Copilot Experience</h3>
+          <p>Create custom agents, prompt files, and skills to make Copilot smarter about the Juice Shop codebase. This cross-cutting challenge can be done at any point.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Recommended Order -->
+    <section class="info-box">
+      <h3>Recommended Order</h3>
+      <p>Start with the <strong>Security track</strong> (S-00 through S-05). You need those features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.</p>
+      <p>Once security is rolling, split into <strong>Frontend</strong> and <strong>Backend</strong> — these two tracks run in parallel. Pick the one that matches your strengths, or tackle both if you're feeling ambitious.</p>
+    </section>
+
+    <!-- Ground Rules -->
+    <section class="info-box" style="margin-top:1.5rem;">
+      <h3>Ground Rules</h3>
+      <ul>
+        <li><strong>Challenge C-00 (Copilot Customization) can be done at any point.</strong> It teaches you to create custom agents, prompt files, and skills. Doing it early makes every other track easier.</li>
+        <li><strong>GitHub Copilot is your pair programmer.</strong> Use it everywhere — in your editor, in the terminal, in chat. The more you use it, the more you'll get out of this.</li>
+        <li><strong>GitHub Advanced Security features live on github.com.</strong> Configure and review them in your repository's Settings and Security tabs.</li>
+        <li><strong>Each challenge has clear success criteria.</strong> Check them off as you go.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

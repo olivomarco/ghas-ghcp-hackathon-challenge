@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="frontend" data-challenge="f01">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F-01: Design System &amp; Component Planning — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-frontend">Frontend Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge F-01: Design System &amp; Component Planning</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Good UI doesn't happen by accident. Before writing a single line of CSS, you need a design system — a shared set of decisions about colors, typography, spacing, and component patterns that keep the entire application visually consistent.</p>
+          <p>In this challenge, you'll define that system and plan which components to tackle first. Use GitHub Copilot to brainstorm approaches, explore color palettes, and think through component architecture. There's also a <code>frontend-design</code> skill available in this repo's <code>.github/skills/</code> directory — read it for guidance on building polished, production-quality interfaces.</p>
+          <p>This planning pays off fast. A solid design system means every component you build in the next challenge already looks like it belongs.</p>
+          <p>You can also capture your design decisions as a custom prompt file (<code>.github/prompts/</code>) for design brainstorming, or extend the <code>frontend-design</code> skill with your own design system tokens — see Challenge C-00 for how.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Define a modern design system: color palette, typography scale, spacing system, and visual language</li>
+            <li>Identify and plan at least 3 components to redesign from the Juice Shop frontend</li>
+            <li>Use GitHub Copilot to brainstorm design approaches and explore alternatives</li>
+            <li>Reference the <code>frontend-design</code> skill in <code>.github/skills/frontend-design/SKILL.md</code> for design guidance</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Design system documented: color palette (primary, secondary, accent, neutrals), typography (font families, size scale), spacing scale</li>
+            <li>At least 3 UI components identified for redesign with a brief plan for each</li>
+            <li>GitHub Copilot used during the planning process</li>
+            <li>The <code>frontend-design</code> skill file has been read and its guidance considered</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/using-github-copilot-chat-in-your-ide" target="_blank" rel="noopener">GitHub Copilot Chat in the editor</a></li>
+            <li><a href="https://www.designsystemsforfigma.com/" target="_blank" rel="noopener">Thinking in design systems</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">Modern CSS features</a></li>
+            <li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">Accessible color contrast</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-page="home">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHAS &amp; GitHub Copilot Hackathon Challenge</title>
+  <meta name="description" content="A hands-on hackathon using GitHub Advanced Security and GitHub Copilot to find and fix real security vulnerabilities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Hackathon Challenge</div>
+      <h1><span class="gradient-text">GHAS &amp; GitHub Copilot</span><br>Hackathon Challenge</h1>
+      <p class="subtitle">&gt; securing_code --with ai<span class="cursor"></span></p>
+      <p class="hero-desc">Use GitHub Advanced Security and GitHub Copilot to find and fix real security vulnerabilities in OWASP Juice Shop — an intentionally insecure web application.</p>
+      <div class="hero-buttons">
+        <a href="getting-started.html" class="btn btn-primary">Get Started →</a>
+        <a href="challenges.html" class="btn btn-secondary">View Challenges</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Do -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title text-gradient">What You'll Do</h2>
+      <div class="grid-4">
+        <div class="card feature-card fade-in">
+          <div class="feature-icon"><i data-lucide="scan-search"></i></div>
+          <h3>Scan</h3>
+          <p>Enable CodeQL, Dependabot, and secret scanning to discover vulnerabilities hiding in the codebase.</p>
+        </div>
+        <div class="card feature-card fade-in fade-in-delay-1">
+          <div class="feature-icon"><i data-lucide="brain"></i></div>
+          <h3>Understand</h3>
+          <p>Use GitHub Copilot to explain what each vulnerability means and why it's dangerous.</p>
+        </div>
+        <div class="card feature-card fade-in fade-in-delay-2">
+          <div class="feature-icon"><i data-lucide="wrench"></i></div>
+          <h3>Fix</h3>
+          <p>Write secure code to remediate the findings, guided by Copilot and Autofix suggestions.</p>
+        </div>
+        <div class="card feature-card fade-in fade-in-delay-3">
+          <div class="feature-icon"><i data-lucide="circle-check"></i></div>
+          <h3>Verify</h3>
+          <p>Confirm your fixes pass security analysis and the alerts are resolved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section-title text-gradient">Challenge Tracks</h2>
+      <p style="text-align:center; max-width:680px; margin:-1.5rem auto 2.5rem;">Three tracks cover the full stack, plus a cross-cutting Copilot customization track. Start with Security, then branch out.</p>
+      <div class="grid-2">
+        <a href="challenges.html#security" class="card card-link" data-track="security">
+          <h3><i data-lucide="shield-check"></i> Security Track</h3>
+          <p>6 challenges · ~5 hours — Enable GHAS, discover vulnerabilities with CodeQL, fix issues with Copilot Autofix, secure dependencies, and configure push protection.</p>
+        </a>
+        <a href="challenges.html#frontend" class="card card-link" data-track="frontend">
+          <h3><i data-lucide="palette"></i> Frontend Track</h3>
+          <p>4 challenges · ~3 hours — Analyze the Juice Shop UI, define a design system, build modern components, and integrate everything into a polished experience.</p>
+        </a>
+        <a href="challenges.html#backend" class="card card-link" data-track="backend">
+          <h3><i data-lucide="server"></i> Backend Track</h3>
+          <p>4 challenges · ~3 hours — Explore the Express.js API, design new features, implement them with Copilot, and write comprehensive tests.</p>
+        </a>
+        <a href="challenges.html#copilot" class="card card-link" data-track="copilot">
+          <h3><i data-lucide="bot"></i> Copilot Customization</h3>
+          <p>1 challenge · ~1 hour — Create custom agents, prompt files, and skills to make Copilot genuinely smarter about your codebase. Do this anytime.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title text-gradient">Tech Stack</h2>
+      <div class="tech-stack">
+        <table>
+          <thead>
+            <tr><th>Layer</th><th>Technology</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Frontend</td><td>Angular, TypeScript</td></tr>
+            <tr><td>Backend</td><td>Express.js, Node.js</td></tr>
+            <tr><td>Database</td><td>SQLite (embedded)</td></tr>
+            <tr><td>Security Tools</td><td>CodeQL, Dependabot, Secret Scanning, GitHub Copilot</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2 class="section-title text-gradient">Resources</h2>
+      <div class="grid-2" style="max-width:800px;margin:0 auto;">
+        <a href="https://pwning.owasp-juice.shop/" class="card card-link" target="_blank" rel="noopener">
+          <h3><i data-lucide="book-open"></i> Juice Shop Docs</h3>
+          <p>Official OWASP Juice Shop documentation and walkthrough companion guide.</p>
+        </a>
+        <a href="https://docs.github.com/en/code-security" class="card card-link" target="_blank" rel="noopener">
+          <h3><i data-lucide="lock-keyhole"></i> GHAS Documentation</h3>
+          <p>GitHub Advanced Security — code scanning, secret scanning, Dependabot, and more.</p>
+        </a>
+        <a href="https://docs.github.com/en/copilot" class="card card-link" target="_blank" rel="noopener">
+          <h3><i data-lucide="bot"></i> Copilot Docs</h3>
+          <p>Learn to use GitHub Copilot in your editor, terminal, and on GitHub.com.</p>
+        </a>
+        <a href="https://owasp.org/www-project-top-ten/" class="card card-link" target="_blank" rel="noopener">
+          <h3><i data-lucide="trophy"></i> OWASP Top 10</h3>
+          <p>The definitive list of the most critical web application security risks.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;">
+    <div class="container">
+      <h2 class="text-gradient" style="font-size:2rem;">Ready to hack?</h2>
+      <p style="margin-bottom:2rem;">Fork the repo, fire up a Codespace, and start securing code.</p>
+      <a href="getting-started.html" class="btn btn-primary">Get Started →</a>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

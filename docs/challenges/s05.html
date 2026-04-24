@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s05">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-05: Security Campaigns — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge S-05: Security Campaigns (Advanced)</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Individual alerts are useful. Coordinated remediation across an entire codebase is powerful. Security campaigns let you group related alerts, set deadlines, and track remediation progress — turning a wall of alerts into a structured plan that a team can execute.</p>
+
+          <blockquote class="note-warning">
+            <p><strong>Important:</strong> Security campaigns require a GitHub Team plan (or higher) with a Code Security license at the organization level. This is an organization-level feature, not a repository-level one. If you have the right access, you'll create a real campaign. If you don't, you'll document how campaigns work and how you'd set one up — that understanding is still valuable.</p>
+          </blockquote>
+
+          <p>This is how security gets done at scale. Not one alert at a time, but as a coordinated effort with deadlines and accountability.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Navigate to your organization's Security Overview (Security tab at org level)</li>
+            <li>Create a security campaign scoping relevant alerts</li>
+            <li>Set a campaign name, description, and due date</li>
+            <li>Track remediation progress within the campaign</li>
+            <li>If org-level access is unavailable: document the campaign setup process and how you would configure it</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Security Overview accessed at the organization level</li>
+            <li>Security campaign created with a descriptive name and due date</li>
+            <li>At least 5 code scanning alerts included in the campaign scope</li>
+            <li>Campaign progress tracked (alerts triaged, assigned, or fixed)</li>
+            <li><strong>OR</strong> if org access unavailable: written documentation of how security campaigns would be set up, including scope selection, timeline, and tracking workflow</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns" target="_blank" rel="noopener">About security campaigns</a></li>
+            <li><a href="https://docs.github.com/en/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-a-security-campaign" target="_blank" rel="noopener">Creating a security campaign</a></li>
+            <li><a href="https://docs.github.com/en/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practices-for-fixing-security-alerts-at-scale" target="_blank" rel="noopener">Best practices for fixing security alerts at scale</a></li>
+            <li><a href="https://docs.github.com/en/code-security/security-overview/about-security-overview" target="_blank" rel="noopener">About security overview</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

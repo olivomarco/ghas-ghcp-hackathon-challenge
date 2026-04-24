@@ -24,3 +24,17 @@
 ### GitHub Pages Session Logged (2026-04-24T00:00:00Z)
 - Orchestration log written by Scribe at `.squad/orchestration-log/2026-04-24-github-pages-switch.md`
 - Design decision merged into `.squad/decisions.md`
+
+### Lucide Icons Migration (2026-04-24)
+- **Icon library:** Lucide Icons (https://lucide.dev) — MIT-licensed, stroke-based SVG icon set via CDN (`unpkg.com/lucide@latest/dist/umd/lucide.min.js`)
+- **Pattern:** `<i data-lucide="icon-name"></i>` elements rendered by `lucide.createIcons()` call in `js/main.js` after all dynamic content injection (nav, footer, sidebar, breadcrumbs)
+- **Files modified (22 total):**
+  - `docs/css/styles.css` — Added Section 23: Lucide icon sizing, glow effects, track-colored strokes, hover animations
+  - `docs/js/main.js` — Added `lucide.createIcons()` in `init()` after all dynamic builds
+  - `docs/index.html` — Replaced 13 emojis (🔍→scan-search, 🧠→brain, 🛠️→wrench, ✅→circle-check, 🔒→shield-check, 🎨→palette, ⚙️→server, 🤖→bot ×2, 📖→book-open, 🔐→lock-keyhole, 🏆→trophy)
+  - `docs/challenges.html` — Replaced 4 track-icon emojis (🔒→shield-check, 🎨→palette, ⚙️→server, 🤖→bot)
+  - `docs/learning-objectives.html` — Replaced 3 section emojis (🔐→lock-keyhole, 🤖→bot, 🛡️→shield)
+  - `docs/security-features.html` — Replaced 1 checkmark emoji (✅→circle-check)
+  - `docs/getting-started.html` — Added CDN (no emojis present)
+  - 15 challenge pages (`challenges/s00-s05.html`, `f00-f03.html`, `b00-b03.html`, `c00.html`) — Replaced ⏱→clock in badge-time spans + added CDN
+- **Styling:** Icons inherit CIPHER theme neon accent colors via `stroke` property, glow `drop-shadow` filters, hover scale+pulse animations on feature cards, track-specific colors (green/cyan/pink/amber)

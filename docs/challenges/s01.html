@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s01">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-01: Enable Code Scanning — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge S-01: Enable Code Scanning &amp; Discover Vulnerabilities</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Your repository is set up — now it's time to see what's hiding in the code. Code scanning uses CodeQL, GitHub's semantic analysis engine, to find security vulnerabilities and coding errors that regular linters miss. We're talking SQL injection, cross-site scripting, insecure deserialization — the stuff that actually gets exploited in production.</p>
+          <p>In this challenge, you'll enable CodeQL with the default setup, trigger your first scan, and then dig into the results. The Juice Shop application is intentionally vulnerable, so you'll have plenty to find. Your job is to review the alerts, understand what they mean, and document what you discover.</p>
+          <p>Pay attention to severity levels and vulnerability categories. You'll need this context for the next challenge, where you actually fix these issues.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Enable CodeQL analysis using the default setup on github.com</li>
+            <li>Trigger the first code scanning analysis</li>
+            <li>Review all code scanning alerts in the Security tab</li>
+            <li>Identify and document at least 5 distinct vulnerabilities, including their severity and type</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>CodeQL default setup is enabled on the repository</li>
+            <li>Code scanning analysis has completed at least one run</li>
+            <li>Security &gt; Code scanning alerts page shows results</li>
+            <li>At least 5 vulnerabilities documented with severity level (critical/high/medium/low) and vulnerability type (e.g., SQL injection, XSS)</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql" target="_blank" rel="noopener">About code scanning with CodeQL</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning" target="_blank" rel="noopener">Configuring default setup for code scanning</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository" target="_blank" rel="noopener">Managing code scanning alerts</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites" target="_blank" rel="noopener">CodeQL query suites</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

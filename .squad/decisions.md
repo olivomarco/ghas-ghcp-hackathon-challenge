@@ -77,6 +77,16 @@
 **What:** Replaced two secrets flagged by GitHub Push Protection: Stripe `sk_live_` key → `sk_live_REPLACEME...` (breaks checksum), Twilio SID → `ACXX...` (all-X won't match regex). Replaced in `app/.env.example` and `app/config/secrets.example.js`.
 **Why:** Push protection was blocking pushes. Replacements preserve educational format while breaking scanner match.
 
+### 2026-04-24T12:00:00Z: User directive
+**By:** Marco Olivo (via Copilot)
+**What:** Always use premium icons in the website — never cheap-looking emoji icons. Use a proper SVG icon library (Lucide, Phosphor, Heroicons, etc.) instead of Unicode emoji.
+**Why:** User request — captured for team memory
+
+### 2026-04-24T12:00:01Z: Lucide Icons for documentation site
+**By:** Switch (Frontend Dev)
+**What:** Replace all emoji icons across 20 HTML files with Lucide Icons (https://lucide.dev) via CDN. MIT-licensed, stroke-based SVGs controllable via CSS, ~60KB gzipped. 13 icon mappings (e.g. 🔍→scan-search, 🧠→brain, 🛠️→wrench, ✅→circle-check, 🔒→shield-check, 🎨→palette, ⚙️→server, 🤖→bot). Added icon CSS with glow/hover effects, `lucide.createIcons()` in main.js.
+**Why:** Emoji rendered inconsistently across platforms and looked unprofessional. Lucide SVGs match the CIPHER cyberpunk aesthetic with neon stroke colors.
+
 ## Governance
 
 - All meaningful changes require team consensus

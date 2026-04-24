@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="backend" data-challenge="b01">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B-01: Feature Design — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-backend">Backend Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge B-01: Feature Design</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Now that you know the codebase, it's time to extend it. Design 2 new backend features that complement the existing application. These should be features that a real product team might actually build — not toy examples.</p>
+          <p>Here are some ideas to get you started, but you're free to come up with your own:</p>
+          <ul>
+            <li><strong>Security audit logging API</strong> — Track user actions, failed login attempts, and suspicious activity. Give administrators visibility into what's happening in the application.</li>
+            <li><strong>Product review analytics endpoint</strong> — Aggregate product ratings, calculate trends, surface sentiment patterns across reviews.</li>
+            <li><strong>User activity dashboard API</strong> — Provide users with their order history, security events (password changes, login locations), and account activity.</li>
+            <li><strong>Admin reporting endpoint</strong> — Sales metrics, security incident summaries, user growth stats — the kind of data an operations team would check every morning.</li>
+          </ul>
+          <p>The design phase matters. Define your API contracts before writing a single line of implementation code: endpoints, HTTP methods, request/response schemas, error cases, and authentication requirements.</p>
+
+          <div class="power-move">
+            <p><strong>Tip:</strong> If you've tackled Challenge C-00, a backend architecture agent or an API design prompt file can help you think through contracts faster — and keep your designs consistent with the existing codebase patterns.</p>
+          </div>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Design 2 new backend features that add meaningful functionality to the Juice Shop</li>
+            <li>Define complete API contracts: endpoint paths, HTTP methods, request parameters, response schemas</li>
+            <li>Document error handling and edge cases for each endpoint</li>
+            <li>Specify authentication and authorization requirements</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>2 backend features designed with clear purpose and scope</li>
+            <li>API contracts documented for each feature: endpoint path, HTTP method, request body/params, response schema</li>
+            <li>Error responses defined (what happens on bad input, unauthorized access, missing resources)</li>
+            <li>Authentication requirements specified for each endpoint</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design" target="_blank" rel="noopener">REST API design best practices</a></li>
+            <li><a href="https://swagger.io/specification/" target="_blank" rel="noopener">OpenAPI Specification</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank" rel="noopener">HTTP status codes reference</a></li>
+            <li><a href="https://owasp.org/API-Security/" target="_blank" rel="noopener">API security best practices (OWASP)</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

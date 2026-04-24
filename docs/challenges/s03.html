@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="security" data-challenge="s03">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-03: Dependabot &amp; Supply Chain — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-security">Security Track</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
+        </div>
+        <h1>Challenge S-03: Dependabot &amp; Supply Chain Security</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>Your own code isn't the only attack surface. Every dependency you pull in — and every dependency <em>those</em> dependencies pull in — is a potential entry point. A single compromised npm package can cascade through thousands of projects overnight. This isn't theoretical; it happens regularly.</p>
+          <p>Dependabot monitors your dependency tree against known vulnerability databases and opens pull requests to update vulnerable packages automatically. In this challenge, you'll enable Dependabot alerts and security updates, review the vulnerabilities it surfaces, and merge real security update PRs.</p>
+          <p>This is the kind of work that separates apps that get breached from apps that don't. Supply chain security is boring right up until the moment it isn't.</p>
+
+          <h2>Objectives</h2>
+          <ul>
+            <li>Enable Dependabot alerts on your repository</li>
+            <li>Enable Dependabot security updates</li>
+            <li>Review the dependency vulnerabilities Dependabot identifies</li>
+            <li>Merge at least 2 Dependabot security update pull requests</li>
+          </ul>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>Dependabot alerts enabled in repository settings</li>
+            <li>Dependabot security updates enabled</li>
+            <li>Dependency vulnerabilities reviewed in the Security &gt; Dependabot alerts tab</li>
+            <li>At least 2 Dependabot security update PRs merged</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts" target="_blank" rel="noopener">About Dependabot alerts</a></li>
+            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates" target="_blank" rel="noopener">Configuring Dependabot security updates</a></li>
+            <li><a href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates" target="_blank" rel="noopener">Managing pull requests for dependency updates</a></li>
+            <li><a href="https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security" target="_blank" rel="noopener">About supply chain security</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

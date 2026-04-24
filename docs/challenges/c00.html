@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-page="challenge" data-track="copilot" data-challenge="c00">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C-00: Customize Your Copilot Experience — GHAS Hackathon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="challenge-layout">
+      <aside class="challenge-sidebar" id="challenge-sidebar"></aside>
+      <div class="challenge-content">
+        <div class="breadcrumbs" id="breadcrumbs"></div>
+        <div class="challenge-meta">
+          <span class="badge badge-copilot">Copilot Customization</span>
+          <span class="badge badge-time"><i data-lucide="clock"></i> 60 min</span>
+        </div>
+        <h1>Challenge C-00: Customize Your Copilot Experience</h1>
+        <div class="challenge-body">
+          <h2>Description</h2>
+          <p>GitHub Copilot is powerful out of the box. But out of the box is generic — it doesn't know your project's architecture, your team's conventions, or what "good" looks like in your specific codebase. That changes when you teach it.</p>
+          <p>In this challenge, you'll create three types of customizations that make Copilot genuinely smarter about the Juice Shop application: a <strong>custom agent</strong> that specializes in a domain you care about, <strong>reusable prompt files</strong> that capture your best questions, and a <strong>custom skill</strong> that encodes knowledge Copilot can't figure out on its own.</p>
+          <p>This is a cross-cutting challenge. You can tackle it at any point during the hackathon — before you start a track, in the middle of one, or after you've finished. The customizations you build here will make every other challenge easier, so earlier is better. But there's no wrong time.</p>
+
+          <h2>Part 1: Create a Custom Agent</h2>
+          <p>Agents are specialized AI personas with specific instructions, domain knowledge, and a defined role. They live in <code>.github/agents/</code> as markdown files with an <code>.agent.md</code> extension, and you invoke them by name in Copilot Chat.</p>
+          <p><strong>Pick one of these directions (or invent your own):</strong></p>
+          <ul>
+            <li><strong>A security-focused agent</strong> — Knows about OWASP Top 10, understands the Juice Shop's vulnerability patterns, helps you find and fix security issues</li>
+            <li><strong>A frontend design agent</strong> — Understands the design system, knows the Angular component structure, guides UI modernization decisions</li>
+            <li><strong>A backend architecture agent</strong> — Knows the Express/Sequelize patterns, helps design new API endpoints that fit the existing codebase</li>
+          </ul>
+          <p>Your agent file should include a clear description, specific instructions, and context about the Juice Shop application relevant to the agent's domain.</p>
+          <p>Test it. Open Copilot Chat, invoke your agent, and give it a real task from one of the other tracks. Does it actually help? If the responses feel generic, your instructions need more specificity.</p>
+
+          <h2>Part 2: Create Custom Prompt Files</h2>
+          <p>Prompt files are reusable templates that live in <code>.github/prompts/</code> with a <code>.prompt.md</code> extension. Think of them as saved questions — the prompts you'd type over and over, packaged up so you can fire them with a click.</p>
+          <p><strong>Create at least 2 prompt files.</strong> Some directions worth exploring:</p>
+          <ul>
+            <li>A code review prompt that checks for security anti-patterns</li>
+            <li>A test generation prompt tailored to the Juice Shop's testing setup</li>
+            <li>A component redesign prompt that feeds in your design system</li>
+            <li>An API design prompt that enforces the project's REST conventions</li>
+            <li>A documentation prompt that generates consistent endpoint docs</li>
+          </ul>
+
+          <h2>Part 3: Create or Extend a Custom Skill</h2>
+          <p>Skills teach Copilot domain knowledge it can't infer from code alone. They live in <code>.github/skills/{skill-name}/SKILL.md</code> and get picked up automatically when relevant to a conversation.</p>
+          <p><strong>Pick one:</strong></p>
+          <ul>
+            <li><strong>Create a new skill</strong> — Encode something you've learned during the hackathon: the data model, auth flow, challenge verification system, or patterns you've discovered.</li>
+            <li><strong>Extend the existing <code>frontend-design</code> skill</strong> — Add your design system decisions, component patterns, or UI conventions.</li>
+          </ul>
+          <p>A good skill captures knowledge that would otherwise live only in your head — the kind of thing you'd explain to a new teammate on their first day.</p>
+
+          <h2>Success Criteria</h2>
+          <ul class="checklist">
+            <li>At least 1 custom agent created in <code>.github/agents/</code> and tested in Copilot Chat</li>
+            <li>At least 2 custom prompt files created in <code>.github/prompts/</code> and used on real tasks</li>
+            <li>At least 1 custom skill created or meaningfully extended in <code>.github/skills/</code></li>
+            <li>Evidence that the customizations improved Copilot's responses (before/after comparison, screenshots, or notes)</li>
+          </ul>
+
+          <h2>Learning Resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot" target="_blank" rel="noopener">Adding custom instructions for GitHub Copilot</a></li>
+            <li><a href="https://docs.github.com/en/copilot/customizing-copilot/using-reusable-prompts" target="_blank" rel="noopener">Using reusable prompts</a></li>
+            <li><a href="https://code.visualstudio.com/docs/copilot/copilot-customization" target="_blank" rel="noopener">Copilot customization in VS Code</a></li>
+          </ul>
+        </div>
+        <div class="prev-next" id="prev-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
