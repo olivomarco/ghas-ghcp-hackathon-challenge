@@ -14,7 +14,7 @@
     }
   },
   "postCreateCommand": "cd app && npm install",
-  "postStartCommand": "echo '🧃 Run: cd app && npm start — then open http://localhost:3000'",
+  "postStartCommand": "bash -lc 'if ! pgrep -f \"node build/app\" >/dev/null; then cd app && nohup npm start >/tmp/juice-shop.log 2>&1 & fi'",
   "customizations": {
     "vscode": {
       "extensions": [
