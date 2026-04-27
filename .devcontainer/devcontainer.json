@@ -1,6 +1,9 @@
 {
   "name": "GHAS & GitHub Copilot Hackathon",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {
       "moby": false
