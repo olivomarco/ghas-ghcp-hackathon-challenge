@@ -25,20 +25,21 @@
         <div class="challenge-body">
           <h2>Description</h2>
           <p>Your repository is set up — now it's time to see what's hiding in the code. Code scanning uses CodeQL, GitHub's semantic analysis engine, to find security vulnerabilities and coding errors that regular linters miss. We're talking SQL injection, cross-site scripting, insecure deserialization — the stuff that actually gets exploited in production.</p>
-          <p>In this challenge, you'll enable CodeQL with the default setup, trigger your first scan, and then dig into the results. The Juice Shop application is intentionally vulnerable, so you'll have plenty to find. Your job is to review the alerts, understand what they mean, and document what you discover.</p>
+          <p>In this challenge, you'll use the CodeQL pipeline that's already configured in the repository (<code>.github/workflows/codeql.yml</code>), trigger your first scan, and then dig into the results. The Juice Shop application is intentionally vulnerable, so you'll have plenty to find. Your job is to review the alerts, understand what they mean, and document what you discover.</p>
+          <p><strong>Note:</strong> This repository uses the CodeQL <strong>advanced setup</strong> (a custom Actions workflow), not the default setup. When an advanced setup workflow is present, GitHub's default setup option is unavailable — the two are mutually exclusive.</p>
           <p>Pay attention to severity levels and vulnerability categories. You'll need this context for the next challenge, where you actually fix these issues.</p>
 
           <h2>Objectives</h2>
           <ul>
-            <li>Enable CodeQL analysis using the default setup on github.com</li>
-            <li>Trigger the first code scanning analysis</li>
+            <li>Understand the CodeQL advanced setup pipeline already configured in <code>.github/workflows/codeql.yml</code></li>
+            <li>Trigger the first code scanning analysis via the Actions workflow</li>
             <li>Review all code scanning alerts in the Security tab</li>
             <li>Identify and document at least 5 distinct vulnerabilities, including their severity and type</li>
           </ul>
 
           <h2>Success Criteria</h2>
           <ul class="checklist">
-            <li>CodeQL default setup is enabled on the repository</li>
+            <li>CodeQL analysis workflow (<code>codeql.yml</code>) has run successfully in the Actions tab</li>
             <li>Code scanning analysis has completed at least one run</li>
             <li>Security &gt; Code scanning alerts page shows results</li>
             <li>At least 5 vulnerabilities documented with severity level (critical/high/medium/low) and vulnerability type (e.g., SQL injection, XSS)</li>
@@ -47,7 +48,7 @@
           <h2>Learning Resources</h2>
           <ul class="resource-list">
             <li><a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql" target="_blank" rel="noopener">About code scanning with CodeQL</a></li>
-            <li><a href="https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning" target="_blank" rel="noopener">Configuring default setup for code scanning</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-advanced-setup-for-code-scanning" target="_blank" rel="noopener">Configuring advanced setup for code scanning</a></li>
             <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository" target="_blank" rel="noopener">Managing code scanning alerts</a></li>
             <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites" target="_blank" rel="noopener">CodeQL query suites</a></li>
           </ul>

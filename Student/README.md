@@ -8,6 +8,7 @@ The challenges are organized into three tracks. Each one hits a different part o
 
 | Track | Challenge | Title | Est. Time |
 |-------|-----------|-------|-----------|
+| **Copilot Customization** | C-00 | Customize Your Copilot Experience | 60 min |
 | **Security** | S-00 | Prerequisites & Security Setup | 30 min |
 | | S-01 | Enable Code Scanning & Discover Vulnerabilities | 45 min |
 | | S-02 | Fix Vulnerabilities with Copilot + Autofix | 60 min |
@@ -22,17 +23,17 @@ The challenges are organized into three tracks. Each one hits a different part o
 | | B-01 | Feature Design | 45 min |
 | | B-02 | Implementation with Copilot | 60 min |
 | | B-03 | Testing & Documentation | 45 min |
-| **Copilot Customization** | C-00 | Customize Your Copilot Experience | 60 min |
 
 ## Recommended Order
 
-Start with the **Security track** (S-00 through S-05). You need those features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.
+Start with **C-00 (Copilot Customization)**. Setting up your repository instructions, agents, and prompt files first means Copilot will be genuinely smarter for every challenge that follows — better suggestions, better explanations, fewer generic responses.
+
+Once your Copilot is tuned, move to **S-00** and work through the **Security track** (S-00 through S-05). You need those GHAS features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.
 
 Once security is rolling, split into **Frontend** and **Backend** — these two tracks run in parallel. Pick the one that matches your strengths, or tackle both if you're feeling ambitious.
 
 ## Ground Rules
 
-- **Challenge C-00 (Copilot Customization) can be done at any point.** It teaches you to create custom agents, prompt files, and skills that make Copilot smarter about this specific codebase. Doing it early makes every other track easier — but it's valuable whenever you get to it.
 - **GitHub Copilot is your pair programmer.** Use it everywhere — in your editor, in the terminal, in chat. Ask it questions. Let it generate code. Challenge its suggestions. The more you use it, the more you'll get out of this.
 - **GitHub Advanced Security features live on github.com.** Code scanning, secret scanning, Dependabot — configure and review these in your repository's Settings and Security tabs, not just from the CLI.
 - **Each challenge has clear success criteria.** Check them off as you go. If you hit all the checkboxes, you nailed it.

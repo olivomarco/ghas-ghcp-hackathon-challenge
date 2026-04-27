@@ -31,6 +31,7 @@
             <tr><th>Track</th><th>Challenge</th><th>Title</th><th>Est. Time</th></tr>
           </thead>
           <tbody>
+            <tr><td><strong>Copilot Customization</strong></td><td>C-00</td><td><a href="challenges/c00.html">Customize Your Copilot Experience</a></td><td>60 min</td></tr>
             <tr><td rowspan="6"><strong>Security</strong></td><td>S-00</td><td><a href="challenges/s00.html">Prerequisites &amp; Security Setup</a></td><td>30 min</td></tr>
             <tr><td>S-01</td><td><a href="challenges/s01.html">Enable Code Scanning &amp; Discover Vulnerabilities</a></td><td>45 min</td></tr>
             <tr><td>S-02</td><td><a href="challenges/s02.html">Fix Vulnerabilities with Copilot + Autofix</a></td><td>60 min</td></tr>
@@ -45,9 +46,23 @@
             <tr><td>B-01</td><td><a href="challenges/b01.html">Feature Design</a></td><td>45 min</td></tr>
             <tr><td>B-02</td><td><a href="challenges/b02.html">Implementation with Copilot</a></td><td>60 min</td></tr>
             <tr><td>B-03</td><td><a href="challenges/b03.html">Testing &amp; Documentation</a></td><td>45 min</td></tr>
-            <tr><td><strong>Copilot</strong></td><td>C-00</td><td><a href="challenges/c00.html">Customize Your Copilot Experience</a></td><td>60 min</td></tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+    <!-- Copilot Track -->
+    <section class="track-section" id="copilot">
+      <div class="track-header">
+        <div class="track-icon" style="background:var(--accent-amber-dim); color:var(--accent-amber);"><i data-lucide="bot"></i></div>
+        <h2>Copilot Customization</h2>
+      </div>
+      <div class="challenge-grid">
+        <a href="challenges/c00.html" class="card challenge-card card-link" data-track="copilot">
+          <div class="card-header"><span class="challenge-label">C-00</span><span class="badge badge-time">60 min</span></div>
+          <h3>Customize Your Copilot Experience</h3>
+          <p><strong>Start here.</strong> Create repository instructions, custom agents, prompt files, and skills to make Copilot smarter about this codebase before tackling any other challenge.</p>
+        </a>
       </div>
     </section>
 
@@ -151,25 +166,11 @@
       </div>
     </section>
 
-    <!-- Copilot Track -->
-    <section class="track-section" id="copilot">
-      <div class="track-header">
-        <div class="track-icon" style="background:var(--accent-amber-dim); color:var(--accent-amber);"><i data-lucide="bot"></i></div>
-        <h2>Copilot Customization</h2>
-      </div>
-      <div class="challenge-grid">
-        <a href="challenges/c00.html" class="card challenge-card card-link" data-track="copilot">
-          <div class="card-header"><span class="challenge-label">C-00</span><span class="badge badge-time">60 min</span></div>
-          <h3>Customize Your Copilot Experience</h3>
-          <p>Create custom agents, prompt files, and skills to make Copilot smarter about the Juice Shop codebase. This cross-cutting challenge can be done at any point.</p>
-        </a>
-      </div>
-    </section>
-
     <!-- Recommended Order -->
     <section class="info-box">
       <h3>Recommended Order</h3>
-      <p>Start with the <strong>Security track</strong> (S-00 through S-05). You need those features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.</p>
+      <p>Start with <strong>C-00 (Copilot Customization)</strong>. Setting up your repository instructions, agents, and prompt files first means Copilot will be genuinely smarter for every challenge that follows — better suggestions, better explanations, fewer generic responses.</p>
+      <p>Once your Copilot is tuned, move to <strong>S-00</strong> and work through the <strong>Security track</strong> (S-00 through S-05). You need those GHAS features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.</p>
       <p>Once security is rolling, split into <strong>Frontend</strong> and <strong>Backend</strong> — these two tracks run in parallel. Pick the one that matches your strengths, or tackle both if you're feeling ambitious.</p>
     </section>
 
@@ -177,7 +178,6 @@
     <section class="info-box" style="margin-top:1.5rem;">
       <h3>Ground Rules</h3>
       <ul>
-        <li><strong>Challenge C-00 (Copilot Customization) can be done at any point.</strong> It teaches you to create custom agents, prompt files, and skills. Doing it early makes every other track easier.</li>
         <li><strong>GitHub Copilot is your pair programmer.</strong> Use it everywhere — in your editor, in the terminal, in chat. The more you use it, the more you'll get out of this.</li>
         <li><strong>GitHub Advanced Security features live on github.com.</strong> Configure and review them in your repository's Settings and Security tabs.</li>
         <li><strong>Each challenge has clear success criteria.</strong> Check them off as you go.</li>
