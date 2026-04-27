@@ -97,6 +97,11 @@
 **What:** Created `.github/codeql/codeql-config.yml` with `paths-ignore` for `app/build`, `**/*.js.map`, `**/node_modules`, and `app/frontend/dist`. Updated CodeQL workflow to reference the config file.
 **Why:** CodeQL reported ~89 parse errors from scanning compiled JS output in `app/build/`. Excluding build artifacts eliminates noise and ensures findings reference actionable source `.ts` files.
 
+### 2026-04-27T00:00:00Z: Devcontainer local Dockerfile base
+**By:** Tank (DevOps)
+**What:** Replaced the `.devcontainer/devcontainer.json` MCR image reference with a local Dockerfile build using `node:20-bookworm`. Added `.devcontainer/Dockerfile`, kept `docker-in-docker` with `moby=false`, and preserved automatic app startup for port forwarding.
+**Why:** The previously configured `mcr.microsoft.com/devcontainers/*` image tags were no longer resolving during Codespaces startup. Building from the official Node image removes that external dependency while preserving the existing devcontainer behavior.
+
 ## Governance
 
 - All meaningful changes require team consensus

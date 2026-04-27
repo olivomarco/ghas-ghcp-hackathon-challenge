@@ -17,7 +17,7 @@
     }
   },
   "postCreateCommand": "cd app && npm install",
-  "postStartCommand": "bash -lc 'if ! pgrep -f \"node build/app\" >/dev/null; then cd app && nohup npm start >/tmp/juice-shop.log 2>&1 & fi'",
+  "postStartCommand": "bash -lc 'if ! pgrep -f \"node build/app\" >/dev/null; then cd /workspaces/ghas-ghcp-hackathon-challenge/app && setsid npm start >/workspaces/ghas-ghcp-hackathon-challenge/.devcontainer/juice-shop.log 2>&1 < /dev/null & fi'",
   "customizations": {
     "vscode": {
       "extensions": [
