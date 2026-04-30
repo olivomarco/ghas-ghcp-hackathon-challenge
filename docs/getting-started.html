@@ -26,7 +26,7 @@
     <section class="feature-section">
       <h2>Prerequisites</h2>
       <ul>
-        <li>A <strong>GitHub account</strong> (free tier works)</li>
+        <li>A <strong>GitHub account</strong> — you need access to the org repo your event organizer set up</li>
         <li><strong>GitHub Copilot</strong> access (free tier or subscription)</li>
         <li>One of:
           <ul>
@@ -37,7 +37,7 @@
         <li>Basic familiarity with JavaScript/TypeScript and web applications</li>
       </ul>
       <blockquote>
-        <p><strong>Note:</strong> To use GitHub Advanced Security features for free, make sure your repository is <strong>public</strong>.</p>
+        <p><strong>Note:</strong> You will <strong>not</strong> fork the repository. Your organizer has set up a shared org repo. You'll create a team branch from <code>main</code> and do all your work there. See the <a href="prerequisites.html">Prerequisites</a> page for the full setup breakdown.</p>
       </blockquote>
     </section>
 
@@ -46,11 +46,13 @@
       <h2>Option A: GitHub Codespaces (Recommended)</h2>
       <p>The fastest way to get started. No local setup required — everything runs in the cloud.</p>
       <ol>
-        <li><strong>Fork</strong> the hackathon repository to your own GitHub account</li>
+        <li>Go to the org repo your organizer shared with you on github.com</li>
         <li>Click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong></li>
         <li>Wait for the dev container to build and dependencies to install</li>
-        <li>Open a terminal and run:
-          <pre><code class="language-bash">cd app && npm start</code></pre>
+        <li>Open a terminal, create your team branch, and start the app:
+          <pre><code class="language-bash">git checkout -b team-{your-team-name}/challenge-work
+git push -u origin team-{your-team-name}/challenge-work
+cd app && npm start</code></pre>
           Juice Shop will be available at port 3000.
         </li>
       </ol>
@@ -61,11 +63,13 @@
       <h2>Option B: Local Dev Container</h2>
       <p>If you prefer working locally with VS Code and Docker.</p>
       <ol>
-        <li><strong>Fork</strong> and <strong>clone</strong> the repository</li>
+        <li><strong>Clone</strong> the org repo (do not fork it)</li>
         <li>Open the folder in VS Code</li>
         <li>When prompted, click <strong>Reopen in Container</strong> (requires Docker Desktop running)</li>
-        <li>Once the container is built, open a terminal and run:
-          <pre><code class="language-bash">cd app && npm start</code></pre>
+        <li>Create your team branch and start the app:
+          <pre><code class="language-bash">git checkout -b team-{your-team-name}/challenge-work
+git push -u origin team-{your-team-name}/challenge-work
+cd app && npm start</code></pre>
         </li>
       </ol>
     </section>

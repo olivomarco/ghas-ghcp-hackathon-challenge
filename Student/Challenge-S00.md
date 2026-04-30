@@ -8,7 +8,7 @@ Juice Shop is intentionally vulnerable. The alerts you'll see aren't theoretical
 
 This is your reconnaissance phase. Build a mental model of the vulnerability surface so the fix challenges that follow have real context.
 
-> **Before this challenge:** Make sure you've completed the [Prerequisites](../docs/prerequisites.html) — GHAS needs to be enabled and the first CodeQL scan needs to have run.
+> **Before this challenge:** Make sure your organizer has completed the [Organizer Setup](../docs/prerequisites.html#organizer-setup) and that you've created your team branch ([Participant Setup](../docs/prerequisites.html#participant-setup)). The security alerts live on the shared org repo — navigate there on github.com to see them.
 
 ## Objectives
 

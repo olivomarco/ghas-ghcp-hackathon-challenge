@@ -6,7 +6,9 @@ The challenges are organized into three tracks. Each one hits a different part o
 
 ## Before You Begin
 
-Complete the **[Prerequisites](../docs/prerequisites.html)** before starting any security challenge. You'll fork the repo, start your dev environment, enable GHAS features, and trigger the first CodeQL scan. This is a one-time setup — not a challenge.
+**If you're a participant:** Your organizer has set up a shared repository in a GitHub organization with GHAS already enabled. You do not fork the repo — you create a team branch from `main` and do all your work there. See the [Prerequisites](../docs/prerequisites.html) page for setup instructions split by role (organizer vs. participant).
+
+**If you're running the event:** Complete the Organizer Setup steps in the Prerequisites before the hackathon starts: fork the upstream repo into your org, protect `main`, enable GHAS, and trigger the first CodeQL scan.
 
 ## Tracks at a Glance
 
@@ -39,5 +41,6 @@ Once security is rolling, split into **Frontend** and **Backend** — these two 
 ## Ground Rules
 
 - **GitHub Copilot is your pair programmer.** Use it everywhere — in your editor, in the terminal, in chat. Ask it questions. Let it generate code. Challenge its suggestions. The more you use it, the more you'll get out of this.
-- **GitHub Advanced Security features live on github.com.** Code scanning, secret scanning, Dependabot — review these in your repository's Settings and Security tabs. Setup is in the Prerequisites. The challenges focus on reading and fixing, not configuring.
+- **Work on your team branch, not main.** Create a branch named after your team, push all your fixes there, and open pull requests back to `main`. Main is protected — direct pushes are blocked.
+- **GitHub Advanced Security features live on github.com.** Code scanning, secret scanning, Dependabot — review these in the shared org repo's Settings and Security tabs. Setup is handled by the organizer. The challenges focus on reading and fixing, not configuring.
 - **Each challenge has clear success criteria.** Check them off as you go. If you hit all the checkboxes, you nailed it.
