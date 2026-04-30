@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S-04: Secret Scanning &amp; Push Protection — GHAS Hackathon</title>
+  <title>S-04: Secure Secrets &amp; Dependencies — GHAS Hackathon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,34 +21,50 @@
           <span class="badge badge-security">Security Track</span>
           <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
         </div>
-        <h1>Challenge S-04: Secret Scanning &amp; Push Protection</h1>
+        <h1>Challenge S-04: Secure Secrets &amp; Dependencies</h1>
         <div class="challenge-body">
           <h2>Description</h2>
-          <p>Secrets in source code are one of the most common — and most preventable — security failures. An API key, a database password, a cloud credential committed to a repo can be found by attackers in minutes. And once a secret hits the git history, just deleting the file doesn't help. It's in the commits forever.</p>
-          <p>GitHub's secret scanning detects secrets that have already been committed. Push protection goes a step further: it blocks the commit <em>before</em> it lands in the repository. In this challenge, you'll enable both features, test push protection by attempting to push a commit containing a fake secret, and then implement a proper secrets management pattern so the application handles credentials correctly.</p>
+          <p>Two different attack surfaces. Same urgency.</p>
+          <p><strong>Hardcoded secrets:</strong> API keys, database passwords, JWT signing keys, and credentials committed to source code are one of the most common and most preventable security failures. Secret scanning has already found any that were committed. Your job is to remove them from the code, move them to environment variables, and make sure the application still works.</p>
+          <p><strong>Vulnerable dependencies:</strong> Every package in <code>package.json</code> is a potential attack vector. Dependabot has been scanning your dependency tree against known CVE databases and flagging packages with published vulnerabilities. Some of these have trivial exploits. Your job is to review the high and critical severity Dependabot alerts, understand what the vulnerability in each package actually is, and merge the security update PRs that fix them.</p>
+          <p>Both issues have the same root cause: trusting something external without vetting it. Treating secrets as code. Treating dependencies as permanent. This challenge is about building the habit of not doing that.</p>
 
           <h2>Objectives</h2>
           <ul>
-            <li>Enable secret scanning on your repository</li>
-            <li>Enable push protection</li>
-            <li>Attempt to push a commit containing a test/fake secret and observe push protection blocking it</li>
-            <li>Implement a proper secrets management pattern (environment variables, GitHub Secrets, or a secrets manager)</li>
+            <li>Review <strong>Security → Secret scanning alerts</strong> for any secrets found in the codebase history</li>
+            <li>Find hardcoded secrets or credentials in the source code (check config files, <code>app.ts</code>, and route handlers)</li>
+            <li>Replace hardcoded values with <code>process.env</code> references and document the required environment variables</li>
+            <li>Review <strong>Security → Dependabot alerts</strong> filtered to critical and high severity</li>
+            <li>For at least 2 Dependabot alerts, open the alert detail, read the CVE description, and understand what the vulnerability actually is before merging the fix PR</li>
+            <li>Merge at least 2 Dependabot security update pull requests</li>
           </ul>
 
           <h2>Success Criteria</h2>
           <ul class="checklist">
-            <li>Secret scanning enabled in repository settings</li>
-            <li>Push protection enabled</li>
-            <li>Push protection successfully blocked a commit containing a secret (screenshot or documented evidence)</li>
-            <li>Proper secrets management pattern implemented — no hardcoded secrets in source code</li>
+            <li>No hardcoded secrets, passwords, or credentials remain in source code files</li>
+            <li>Secrets replaced with environment variable references (<code>process.env.VARIABLE_NAME</code>)</li>
+            <li>At least 2 Dependabot security update PRs reviewed, understood, and merged</li>
+            <li>Secret scanning alerts addressed or explained (false positives dismissed with notes)</li>
+            <li>Application still starts and authenticates correctly after secrets migration</li>
           </ul>
+
+          <h2>Copilot Tips</h2>
+          <ul>
+            <li>Ask Copilot to scan a file: <em>"Are there any hardcoded credentials, API keys, or secrets in this file? Show me every suspicious value."</em></li>
+            <li>Ask: <em>"Help me refactor this to use environment variables. What should I name each variable and how should I document them?"</em></li>
+            <li>Open a Dependabot alert CVE description and paste it to Copilot: <em>"Explain this CVE in plain English. What attack does it enable and what's the impact?"</em></li>
+          </ul>
+
+          <div class="power-move">
+            <p><strong>Push protection test:</strong> Try pushing a commit that contains a test secret (e.g., a fake AWS key format). Push protection should block it before it lands. This demonstrates the prevention layer on top of detection.</p>
+          </div>
 
           <h2>Learning Resources</h2>
           <ul class="resource-list">
             <li><a href="https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning" target="_blank" rel="noopener">About secret scanning</a></li>
-            <li><a href="https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection" target="_blank" rel="noopener">About push protection</a></li>
-            <li><a href="https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection" target="_blank" rel="noopener">Working with push protection</a></li>
-            <li><a href="https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions" target="_blank" rel="noopener">Using secrets in GitHub Actions</a></li>
+            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts" target="_blank" rel="noopener">Viewing and updating Dependabot alerts</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP Secrets Management Cheat Sheet</a></li>
+            <li><a href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates" target="_blank" rel="noopener">Managing Dependabot pull requests</a></li>
           </ul>
         </div>
         <div class="prev-next" id="prev-next"></div>

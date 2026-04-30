@@ -1,32 +1,40 @@
-# Challenge S-02: Fix Vulnerabilities with Copilot + Autofix
+# Challenge S-02: Fix XSS & Unsafe Output
 
 ## Description
 
-Finding vulnerabilities is step one. Fixing them without breaking the application — that's where it gets interesting.
+Cross-site scripting (XSS) happens when your application takes user-controlled data and includes it in an HTML response without encoding it. The browser can't tell the difference between your markup and the attacker's injected script — it runs both. The result: session hijacking, credential theft, malicious redirects.
 
-In this challenge, you'll pick at least 3 vulnerabilities from the code scanning alerts you documented in S-01 and fix them. You've got two powerful tools at your disposal: GitHub Copilot in your editor (ask it to explain the vulnerability, suggest a fix, or review your patch) and Copilot Autofix in the Security tab on github.com (hit "Generate fix" on an alert and let it propose a complete remediation).
+Juice Shop has XSS vulnerabilities in its frontend and backend. Some are reflected (input immediately echoed back in the response), some are stored (input saved to the database and rendered to other users later). CodeQL has flagged locations where user data flows into HTML output unsanitized. Your job is to find those code paths and add the encoding layer that stops the injection.
 
-Each fix should go into its own pull request with a clear description of what was wrong and how you addressed it. The goal isn't just to make the alert disappear — it's to understand why the code was vulnerable and why your fix actually solves the problem.
-
-**Power move:** If you've done Challenge C-00, consider creating a security-focused custom agent (`.github/agents/`) that knows about OWASP patterns and the Juice Shop's vulnerability surface. A well-instructed agent can speed up both diagnosis and remediation.
+The fix pattern is usually: encode output before rendering it, or use framework APIs that handle this automatically. The tricky part is understanding *which* context the data ends up in — HTML body, attribute, JavaScript, URL — because each requires a different encoding strategy.
 
 ## Objectives
 
-- Select at least 3 vulnerabilities from the code scanning alerts
-- Use GitHub Copilot in your editor to understand and remediate each vulnerability
-- Try Copilot Autofix from the Security tab (click "Generate fix" on an alert) for at least one vulnerability
-- Create pull requests for each fix with descriptive commit messages
+- Filter **Security → Code scanning alerts** for XSS-related alerts
+- Open the affected files and trace the data flow: where does user input enter, and where does it reach HTML output?
+- Fix at least 2 XSS vulnerabilities by applying appropriate output encoding or switching to safe framework APIs
+- Identify whether each vulnerability is reflected or stored, and explain the difference in your PR description
+- Open pull requests with a description of the data flow that was exploitable and how the fix closes it
 
 ## Success Criteria
 
-- [ ] At least 3 code scanning vulnerabilities addressed
-- [ ] GitHub Copilot used to assist with understanding and fixing vulnerabilities
-- [ ] Copilot Autofix tried on at least one alert from the Security tab
-- [ ] Pull requests created for each fix with clear descriptions of the vulnerability and the remediation
-- [ ] Fixed alerts show as resolved in the Security tab
+- [ ] At least 2 XSS vulnerabilities fixed
+- [ ] Fixes use output encoding or safe framework APIs — not input filtering alone
+- [ ] PR descriptions explain the data flow: source (user input), sink (HTML output), and encoding applied
+- [ ] Fixed alerts resolved in Security → Code scanning alerts
+- [ ] Application still renders correctly after the fixes
+
+## Copilot Tips
+
+- Highlight the vulnerable code and ask: *"This renders user input into HTML without encoding. What's the correct Angular/Node.js safe output API to use here?"*
+- Ask: *"What's the difference between reflected and stored XSS, and which does this code path represent?"*
+- Ask: *"What encoding is needed for data going into an HTML attribute versus HTML body versus a JavaScript string?"*
+
+**Power move:** Open the running app, trigger the XSS manually (try `<script>alert(1)</script>` in a search or input field), then fix the code and verify the same input is now safely rendered as text.
 
 ## Learning Resources
 
-- [About Copilot Autofix for code scanning](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)
-- [Using GitHub Copilot to fix code scanning alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)
-- [Managing code scanning alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
+- [OWASP: Cross-Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
+- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- [About Copilot Autofix](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)
+- [Angular Security: Preventing XSS](https://angular.io/guide/security#preventing-cross-site-scripting-xss)

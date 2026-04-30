@@ -1,28 +1,43 @@
-# Challenge S-04: Secret Scanning & Push Protection
+# Challenge S-04: Secure Secrets & Dependencies
 
 ## Description
 
-Secrets in source code are one of the most common — and most preventable — security failures. An API key, a database password, a cloud credential committed to a repo can be found by attackers in minutes. And once a secret hits the git history, just deleting the file doesn't help. It's in the commits forever.
+Two different attack surfaces. Same urgency.
 
-GitHub's secret scanning detects secrets that have already been committed. Push protection goes a step further: it blocks the commit *before* it lands in the repository. In this challenge, you'll enable both features, test push protection by attempting to push a commit containing a fake secret, and then implement a proper secrets management pattern so the application handles credentials correctly.
+**Hardcoded secrets:** API keys, database passwords, JWT signing keys, and credentials committed to source code are one of the most common and most preventable security failures. Secret scanning has already found any that were committed. Your job is to remove them from the code, move them to environment variables, and make sure the application still works.
+
+**Vulnerable dependencies:** Every package in `package.json` is a potential attack vector. Dependabot has been scanning your dependency tree against known CVE databases and flagging packages with published vulnerabilities. Some of these have trivial exploits. Your job is to review the high and critical severity Dependabot alerts, understand what the vulnerability in each package actually is, and merge the security update PRs that fix them.
+
+Both issues have the same root cause: trusting something external without vetting it. Treating secrets as code. Treating dependencies as permanent. This challenge is about building the habit of not doing that.
 
 ## Objectives
 
-- Enable secret scanning on your repository
-- Enable push protection
-- Attempt to push a commit containing a test/fake secret and observe push protection blocking it
-- Implement a proper secrets management pattern (environment variables, GitHub Secrets, or a secrets manager)
+- Review **Security → Secret scanning alerts** for any secrets found in the codebase history
+- Find hardcoded secrets or credentials in the source code (check config files, `app.ts`, and route handlers)
+- Replace hardcoded values with `process.env` references and document the required environment variables
+- Review **Security → Dependabot alerts** filtered to critical and high severity
+- For at least 2 Dependabot alerts, open the alert detail, read the CVE description, and understand what the vulnerability actually is before merging the fix PR
+- Merge at least 2 Dependabot security update pull requests
 
 ## Success Criteria
 
-- [ ] Secret scanning enabled in repository settings
-- [ ] Push protection enabled
-- [ ] Push protection successfully blocked a commit containing a secret (screenshot or documented evidence)
-- [ ] Proper secrets management pattern implemented — no hardcoded secrets in source code
+- [ ] No hardcoded secrets, passwords, or credentials remain in source code files
+- [ ] Secrets replaced with environment variable references (`process.env.VARIABLE_NAME`)
+- [ ] At least 2 Dependabot security update PRs reviewed, understood, and merged
+- [ ] Secret scanning alerts addressed or explained (false positives dismissed with notes)
+- [ ] Application still starts and authenticates correctly after secrets migration
+
+## Copilot Tips
+
+- Ask Copilot to scan a file: *"Are there any hardcoded credentials, API keys, or secrets in this file? Show me every suspicious value."*
+- Ask: *"Help me refactor this to use environment variables. What should I name each variable and how should I document them?"*
+- Open a Dependabot alert CVE description and paste it to Copilot: *"Explain this CVE in plain English. What attack does it enable and what's the impact?"*
+
+**Push protection test:** Try pushing a commit that contains a test secret (e.g., a fake AWS key format). Push protection should block it before it lands. This demonstrates the prevention layer on top of detection.
 
 ## Learning Resources
 
 - [About secret scanning](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)
-- [About push protection](https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection)
-- [Working with push protection](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection)
-- [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+- [Viewing and updating Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+- [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)
+- [Managing Dependabot pull requests](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)

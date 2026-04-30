@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-page="prerequisites">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prerequisites — GHAS &amp; Copilot Hackathon</title>
+  <meta name="description" content="Set up your repository, development environment, and GitHub Advanced Security features before starting the security challenges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="container page-breadcrumbs">
+    <div class="breadcrumbs" id="breadcrumbs"></div>
+  </div>
+
+  <main class="container page-main" style="padding-top:1rem;">
+    <div class="page-header" style="text-align:left; padding-top:1rem;">
+      <h1>Prerequisites</h1>
+      <p>Complete these steps once before starting any challenge. The security challenges assume GHAS features are already active — this is where you flip those switches.</p>
+    </div>
+
+    <!-- Step 1: Fork & Dev Environment -->
+    <section class="feature-section">
+      <h2><span style="color:var(--accent-amber)">Step 1</span> — Fork the Repository &amp; Start Your Dev Environment</h2>
+      <ol>
+        <li>
+          <strong>Fork</strong> the hackathon repository to your own GitHub account using the <strong>Fork</strong> button at the top right of the repo page.
+        </li>
+        <li>
+          Choose one of the following environments:
+          <ul>
+            <li>
+              <strong>GitHub Codespaces (recommended)</strong>: Click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong>. Wait for the container to build and dependencies to install.
+            </li>
+            <li>
+              <strong>Local dev container</strong>: Clone your fork, open the folder in VS Code, and click <strong>Reopen in Container</strong> when prompted (requires Docker Desktop).
+            </li>
+          </ul>
+        </li>
+        <li>
+          Once the environment is ready, open a terminal and start the application:
+          <pre><code class="language-bash">cd app && npm start</code></pre>
+          Juice Shop will be available at port 3000.
+        </li>
+      </ol>
+      <blockquote>
+        <p><strong>Note:</strong> GitHub Advanced Security features are free on <strong>public</strong> repositories. Make sure your fork is public (the default when forking a public repo).</p>
+      </blockquote>
+    </section>
+
+    <!-- Step 2: Enable GHAS -->
+    <section class="feature-section">
+      <h2><span style="color:var(--accent-amber)">Step 2</span> — Enable GitHub Advanced Security</h2>
+      <p>Navigate to your fork on github.com. Go to <strong>Settings → Code security and analysis</strong> and enable the following:</p>
+      <ol>
+        <li><strong>GitHub Advanced Security</strong> — the top-level toggle that unlocks all features below.</li>
+        <li><strong>Dependency graph</strong> — should already be enabled by default.</li>
+        <li><strong>Dependabot alerts</strong> — turns on alerts for known-vulnerable packages.</li>
+        <li><strong>Dependabot security updates</strong> — allows Dependabot to open automated PRs to fix vulnerable dependencies.</li>
+        <li><strong>Code scanning</strong> — this repo ships with a pre-configured CodeQL workflow at <code>.github/workflows/codeql.yml</code>. No default setup needed — the advanced setup workflow takes precedence.</li>
+        <li><strong>Secret scanning</strong> — detects secrets (API keys, tokens, credentials) already committed to the repo.</li>
+        <li><strong>Push protection</strong> — blocks new commits that contain secrets before they land in the repository.</li>
+      </ol>
+      <div class="info-box" style="margin-top:1rem;">
+        <p><strong>Why this matters:</strong> Without these enabled, the Security tab will be empty and the challenges won't have any alerts to work with. Enable everything now so the tools have time to run their first scan while you work through C-00.</p>
+      </div>
+    </section>
+
+    <!-- Step 3: Trigger first CodeQL scan -->
+    <section class="feature-section">
+      <h2><span style="color:var(--accent-amber)">Step 3</span> — Trigger the First Code Scan</h2>
+      <p>CodeQL is pre-configured in <code>.github/workflows/codeql.yml</code>. The workflow runs automatically on push and on a schedule, but you can trigger it manually right now so alerts appear before you need them.</p>
+      <ol>
+        <li>Go to <strong>Actions</strong> in your fork.</li>
+        <li>Select the <strong>CodeQL</strong> workflow from the left sidebar.</li>
+        <li>Click <strong>Run workflow</strong> → <strong>Run workflow</strong>.</li>
+        <li>Wait for the run to complete (typically 5–10 minutes). The results will appear under <strong>Security → Code scanning alerts</strong>.</li>
+      </ol>
+      <blockquote>
+        <p><strong>Note:</strong> This repository uses the CodeQL <strong>advanced setup</strong> (a custom Actions workflow). When an advanced setup workflow is present, GitHub's default setup option is unavailable — the two are mutually exclusive. Do not try to enable default setup.</p>
+      </blockquote>
+    </section>
+
+    <!-- Step 4: Verify everything is active -->
+    <section class="feature-section">
+      <h2><span style="color:var(--accent-amber)">Step 4</span> — Verify Your Setup</h2>
+      <p>Before starting the challenges, confirm the following checklist:</p>
+      <ul class="checklist">
+        <li>Repository forked to your GitHub account (public repo)</li>
+        <li>Development environment running — Juice Shop loads at port 3000</li>
+        <li>GitHub Advanced Security enabled in Settings → Code security and analysis</li>
+        <li>Dependabot alerts and security updates turned on</li>
+        <li>Code scanning enabled — the CodeQL workflow has run at least once</li>
+        <li>Security → Code scanning alerts shows results</li>
+        <li>Secret scanning and push protection turned on</li>
+        <li>Dependency graph is active and shows detected packages</li>
+      </ul>
+    </section>
+
+    <!-- Next Steps -->
+    <section style="text-align:center; padding:3rem 0;">
+      <h2 class="text-gradient">Ready to start hacking?</h2>
+      <p style="margin-bottom:1.5rem;">Start with Copilot Customization to tune your AI assistant, then dive into the Security challenges.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="challenges/c00.html" class="btn btn-primary">Start with C-00 →</a>
+        <a href="challenges/s00.html" class="btn btn-secondary">Jump to S-00</a>
+        <a href="challenges.html" class="btn btn-secondary">View All Challenges</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,29 +1,39 @@
-# Challenge S-00: Prerequisites & Security Setup
+# Challenge S-00: Explore the Attack Surface
 
 ## Description
 
-Every security journey starts with getting your environment right. In this challenge, you'll fork the repository, spin up a development environment, and enable GitHub Advanced Security (GHAS) on your fork.
+Before you fix anything, you need to understand what you're dealing with. GHAS is already running on your repository — CodeQL has scanned the codebase, Dependabot has checked every dependency, and secret scanning has reviewed every commit. The results are waiting for you in the Security tab.
 
-This is the foundation for everything that follows. GHAS gives you code scanning, secret scanning, Dependabot alerts, and more — but none of it works until you flip the switches. By the end of this challenge, your repo will be wired up and ready for the real work ahead.
+Juice Shop is intentionally vulnerable. The alerts you'll see aren't theoretical — they're real exploitable flaws in real code. SQL injection that lets attackers bypass authentication. XSS that can hijack user sessions. Broken access control that exposes data it shouldn't. Your job in this challenge is to read those alerts, open the affected files, and use Copilot to understand exactly what the code is doing wrong.
+
+This is your reconnaissance phase. Build a mental model of the vulnerability surface so the fix challenges that follow have real context.
+
+> **Before this challenge:** Make sure you've completed the [Prerequisites](../docs/prerequisites.html) — GHAS needs to be enabled and the first CodeQL scan needs to have run.
 
 ## Objectives
 
-- Fork the hackathon repository to your own GitHub account
-- Open the project in a GitHub Codespace or local devcontainer
-- Enable all GitHub Advanced Security features in your fork's settings (Settings > Code security and analysis)
-- Confirm the dependency graph is active and populated
+- Navigate to **Security → Code scanning alerts** on your fork and review all open alerts
+- Open at least 5 alerts and read the full alert detail — location, description, and the code path that triggers it
+- For each alert, open the affected file in your editor and ask Copilot Chat: *"What does this code do wrong, and how could an attacker exploit it?"*
+- Group your alerts by vulnerability class (injection, XSS, access control, secrets, etc.) to plan your fix order
+- Check **Security → Dependabot alerts** and note any critical or high-severity dependency vulnerabilities
 
 ## Success Criteria
 
-- [ ] Repository forked to your account
-- [ ] Development environment running (Codespace or devcontainer)
-- [ ] GitHub Advanced Security is enabled on the repository
-- [ ] Code scanning, secret scanning, and Dependabot alerts are all turned on
-- [ ] Dependency graph shows detected dependencies
+- [ ] At least 5 code scanning alerts reviewed with alert detail read
+- [ ] Each reviewed alert has a Copilot-generated explanation of: what the vulnerability is, what an attacker could do with it, and where in the code it lives
+- [ ] Alerts grouped by vulnerability class with a fix order documented
+- [ ] Dependabot alerts reviewed — any critical/high severity ones noted
+
+## Copilot Tips
+
+- Open the flagged file and highlight the vulnerable code snippet, then ask: *"Explain this vulnerability to me like I'm going to have to fix it"*
+- Ask: *"What OWASP category does this fall under, and what's the standard fix pattern?"*
+- Ask: *"If an attacker sent a crafted HTTP request to this endpoint, what could they achieve?"*
 
 ## Learning Resources
 
-- [Setting up GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security)
-- [Creating a codespace for a repository](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)
-- [Configuring code security and analysis](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)
-- [About the dependency graph](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
+- [Managing code scanning alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [Viewing Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+- [About CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)

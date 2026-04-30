@@ -32,11 +32,11 @@
           </thead>
           <tbody>
             <tr><td><strong>Copilot Customization</strong></td><td>C-00</td><td><a href="challenges/c00.html">Customize Your Copilot Experience</a></td><td>60 min</td></tr>
-            <tr><td rowspan="6"><strong>Security</strong></td><td>S-00</td><td><a href="challenges/s00.html">Prerequisites &amp; Security Setup</a></td><td>30 min</td></tr>
-            <tr><td>S-01</td><td><a href="challenges/s01.html">Enable Code Scanning &amp; Discover Vulnerabilities</a></td><td>45 min</td></tr>
-            <tr><td>S-02</td><td><a href="challenges/s02.html">Fix Vulnerabilities with Copilot + Autofix</a></td><td>60 min</td></tr>
-            <tr><td>S-03</td><td><a href="challenges/s03.html">Dependabot &amp; Supply Chain Security</a></td><td>45 min</td></tr>
-            <tr><td>S-04</td><td><a href="challenges/s04.html">Secret Scanning &amp; Push Protection</a></td><td>45 min</td></tr>
+            <tr><td rowspan="6"><strong>Security</strong></td><td>S-00</td><td><a href="challenges/s00.html">Explore the Attack Surface</a></td><td>30 min</td></tr>
+            <tr><td>S-01</td><td><a href="challenges/s01.html">Fix Injection Vulnerabilities</a></td><td>60 min</td></tr>
+            <tr><td>S-02</td><td><a href="challenges/s02.html">Fix XSS &amp; Unsafe Output</a></td><td>60 min</td></tr>
+            <tr><td>S-03</td><td><a href="challenges/s03.html">Fix Broken Access Control</a></td><td>45 min</td></tr>
+            <tr><td>S-04</td><td><a href="challenges/s04.html">Secure Secrets &amp; Dependencies</a></td><td>45 min</td></tr>
             <tr><td>S-05</td><td><a href="challenges/s05.html">Security Campaigns (Advanced)</a></td><td>45 min</td></tr>
             <tr><td rowspan="4"><strong>Frontend</strong></td><td>F-00</td><td><a href="challenges/f00.html">Project Setup &amp; UI Analysis</a></td><td>30 min</td></tr>
             <tr><td>F-01</td><td><a href="challenges/f01.html">Design System &amp; Component Planning</a></td><td>45 min</td></tr>
@@ -72,36 +72,37 @@
         <div class="track-icon" style="background:var(--accent-green-dim); color:var(--accent-green);"><i data-lucide="shield-check"></i></div>
         <h2>Security Track</h2>
       </div>
+      <p style="margin-bottom:1.5rem; color:var(--text-muted);">All GHAS features (CodeQL, Dependabot, secret scanning) are pre-configured. Complete the <a href="prerequisites.html">Prerequisites</a> before starting this track, then focus on reading, understanding, and fixing real vulnerabilities in the code.</p>
       <div class="challenge-grid">
         <a href="challenges/s00.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-00</span><span class="badge badge-time">30 min</span></div>
-          <h3>Prerequisites &amp; Security Setup</h3>
-          <p>Fork the repo, spin up a dev environment, and enable GitHub Advanced Security.</p>
+          <h3>Explore the Attack Surface</h3>
+          <p>Read the GHAS alerts, use Copilot to understand what each vulnerability means in context, and map out your fix list.</p>
         </a>
         <a href="challenges/s01.html" class="card challenge-card card-link" data-track="security">
-          <div class="card-header"><span class="challenge-label">S-01</span><span class="badge badge-time">45 min</span></div>
-          <h3>Enable Code Scanning &amp; Discover Vulnerabilities</h3>
-          <p>Enable CodeQL, trigger your first scan, and review the security alerts.</p>
+          <div class="card-header"><span class="challenge-label">S-01</span><span class="badge badge-time">60 min</span></div>
+          <h3>Fix Injection Vulnerabilities</h3>
+          <p>Identify SQL and NoSQL injection flaws flagged by CodeQL and fix them with parameterized queries and validated input.</p>
         </a>
         <a href="challenges/s02.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-02</span><span class="badge badge-time">60 min</span></div>
-          <h3>Fix Vulnerabilities with Copilot + Autofix</h3>
-          <p>Pick at least 3 vulnerabilities and fix them using Copilot and Autofix.</p>
+          <h3>Fix XSS &amp; Unsafe Output</h3>
+          <p>Find reflected and stored XSS vulnerabilities and fix them with proper output encoding and sanitization.</p>
         </a>
         <a href="challenges/s03.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-03</span><span class="badge badge-time">45 min</span></div>
-          <h3>Dependabot &amp; Supply Chain Security</h3>
-          <p>Enable Dependabot, review dependency vulnerabilities, and merge security PRs.</p>
+          <h3>Fix Broken Access Control</h3>
+          <p>Identify authorization flaws and insecure direct object references, then implement proper access control checks.</p>
         </a>
         <a href="challenges/s04.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-04</span><span class="badge badge-time">45 min</span></div>
-          <h3>Secret Scanning &amp; Push Protection</h3>
-          <p>Detect committed secrets, test push protection, and implement proper secrets management.</p>
+          <h3>Secure Secrets &amp; Dependencies</h3>
+          <p>Find hardcoded credentials in the code, move them to environment variables, and remediate vulnerable dependency alerts.</p>
         </a>
         <a href="challenges/s05.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-05</span><span class="badge badge-time">45 min</span></div>
           <h3>Security Campaigns (Advanced)</h3>
-          <p>Organize alerts into coordinated remediation campaigns at the organization level.</p>
+          <p>Organize your remaining alerts into a security campaign to track and coordinate remediation at scale.</p>
         </a>
       </div>
     </section>
@@ -170,7 +171,8 @@
     <section class="info-box">
       <h3>Recommended Order</h3>
       <p>Start with <strong>C-00 (Copilot Customization)</strong>. Setting up your repository instructions, agents, and prompt files first means Copilot will be genuinely smarter for every challenge that follows — better suggestions, better explanations, fewer generic responses.</p>
-      <p>Once your Copilot is tuned, move to <strong>S-00</strong> and work through the <strong>Security track</strong> (S-00 through S-05). You need those GHAS features enabled before anything else makes sense, and the vulnerabilities you find will give you real context for the rest of the day.</p>
+      <p>Before diving into the Security track, complete the <a href="prerequisites.html"><strong>Prerequisites</strong></a> — fork the repo, enable GHAS features, and trigger the first CodeQL scan. This is a one-time setup, not a challenge.</p>
+      <p>Then work through the <strong>Security track</strong> (S-00 through S-05). Each challenge focuses on a specific vulnerability class: read what CodeQL found, understand the code with Copilot's help, write the fix, and verify the alert resolves. You'll be writing code, not clicking settings.</p>
       <p>Once security is rolling, split into <strong>Frontend</strong> and <strong>Backend</strong> — these two tracks run in parallel. Pick the one that matches your strengths, or tackle both if you're feeling ambitious.</p>
     </section>
 

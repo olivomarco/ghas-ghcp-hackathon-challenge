@@ -8,15 +8,22 @@
 
   /* ----- Challenge Data ----- */
   const tracks = {
+    copilot: {
+      label: 'Copilot Customization',
+      color: 'copilot',
+      challenges: [
+        { id: 'c00', title: 'Customize Your Copilot Experience', time: '60 min' },
+      ]
+    },
     security: {
       label: 'Security',
       color: 'security',
       challenges: [
-        { id: 's00', title: 'Prerequisites & Security Setup', time: '30 min' },
-        { id: 's01', title: 'Enable Code Scanning & Discover Vulnerabilities', time: '45 min' },
-        { id: 's02', title: 'Fix Vulnerabilities with Copilot + Autofix', time: '60 min' },
-        { id: 's03', title: 'Dependabot & Supply Chain Security', time: '45 min' },
-        { id: 's04', title: 'Secret Scanning & Push Protection', time: '45 min' },
+        { id: 's00', title: 'Explore the Attack Surface', time: '30 min' },
+        { id: 's01', title: 'Fix Injection Vulnerabilities', time: '60 min' },
+        { id: 's02', title: 'Fix XSS & Unsafe Output', time: '60 min' },
+        { id: 's03', title: 'Fix Broken Access Control', time: '45 min' },
+        { id: 's04', title: 'Secure Secrets & Dependencies', time: '45 min' },
         { id: 's05', title: 'Security Campaigns (Advanced)', time: '45 min' },
       ]
     },
@@ -40,13 +47,6 @@
         { id: 'b03', title: 'Testing & Documentation', time: '45 min' },
       ]
     },
-    copilot: {
-      label: 'Copilot Customization',
-      color: 'copilot',
-      challenges: [
-        { id: 'c00', title: 'Customize Your Copilot Experience', time: '60 min' },
-      ]
-    }
   };
 
   /* ----- Path Helpers ----- */
@@ -84,6 +84,7 @@
         <ul class="nav-links" id="nav-links">
           <li><a href="${base}index.html" class="${page === 'home' ? 'active' : ''}">Home</a></li>
           <li><a href="${base}getting-started.html" class="${page === 'getting-started' ? 'active' : ''}">Getting Started</a></li>
+          <li><a href="${base}prerequisites.html" class="${page === 'prerequisites' ? 'active' : ''}">Prerequisites</a></li>
           <li class="nav-dropdown">
             <a href="${base}challenges.html" class="nav-dropdown-trigger ${page === 'challenges' || page === 'challenge' ? 'active' : ''}">Challenges</a>
             <div class="nav-dropdown-menu">
@@ -128,6 +129,7 @@
         <ul class="footer-links">
           <li><a href="${base}index.html">Home</a></li>
           <li><a href="${base}getting-started.html">Getting Started</a></li>
+          <li><a href="${base}prerequisites.html">Prerequisites</a></li>
           <li><a href="${base}challenges.html">Challenges</a></li>
           <li><a href="${base}learning-objectives.html">Learning Objectives</a></li>
           <li><a href="${base}security-features.html">Security Reference</a></li>
@@ -183,6 +185,7 @@
     } else {
       const titles = {
         'getting-started': 'Getting Started',
+        'prerequisites': 'Prerequisites',
         'challenges': 'Challenges',
         'learning-objectives': 'Learning Objectives',
         'security-features': 'Security Features Reference',

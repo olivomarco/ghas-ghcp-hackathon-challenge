@@ -1,32 +1,40 @@
-# Challenge S-01: Enable Code Scanning & Discover Vulnerabilities
+# Challenge S-01: Fix Injection Vulnerabilities
 
 ## Description
 
-Your repository is set up — now it's time to see what's hiding in the code. Code scanning uses CodeQL, GitHub's semantic analysis engine, to find security vulnerabilities and coding errors that regular linters miss. We're talking SQL injection, cross-site scripting, insecure deserialization — the stuff that actually gets exploited in production.
+Injection is consistently the most exploited class of vulnerability in web applications. When user-controlled input reaches a database query, command interpreter, or template engine without proper sanitization, attackers can rewrite the logic — stealing data, bypassing authentication, or destroying records.
 
-In this challenge, you'll use the CodeQL pipeline that's already configured in the repository (`.github/workflows/codeql.yml`), trigger your first scan, and then dig into the results. The Juice Shop application is intentionally vulnerable, so you'll have plenty to find. Your job is to review the alerts, understand what they mean, and document what you discover.
+Juice Shop contains real SQL injection and NoSQL injection vulnerabilities in its backend routes. CodeQL has already flagged them. In this challenge you'll locate those alerts, open the affected code, understand exactly why it's exploitable, and write the fix. The goal isn't just to make the CodeQL alert disappear — it's to understand the safe coding pattern so you can apply it anywhere.
 
-> **Note:** This repository uses the CodeQL **advanced setup** (a custom Actions workflow), not the default setup. When an advanced setup workflow is present, GitHub's default setup option is unavailable — the two are mutually exclusive.
-
-Pay attention to severity levels and vulnerability categories. You'll need this context for the next challenge, where you actually fix these issues.
+You're working as a developer fixing real application code. Not configuring tools. Not clicking settings. Writing code.
 
 ## Objectives
 
-- Understand the CodeQL advanced setup pipeline already configured in `.github/workflows/codeql.yml`
-- Trigger the first code scanning analysis via the Actions workflow
-- Review all code scanning alerts in the Security tab
-- Identify and document at least 5 distinct vulnerabilities, including their severity and type
+- Filter **Security → Code scanning alerts** to show injection-related alerts (search for `sql` or `injection`)
+- Open each affected file in your editor and read the vulnerable code path with Copilot's help
+- Fix at least 2 injection vulnerabilities by replacing string concatenation with parameterized queries or ORM-safe alternatives
+- Open a pull request for each fix with a description of: what was wrong, what an attacker could have done, and how the fix addresses it
+- Verify the fixed alerts are resolved in the Security tab
 
 ## Success Criteria
 
-- [ ] CodeQL analysis workflow (`codeql.yml`) has run successfully in the Actions tab
-- [ ] Code scanning analysis has completed at least one run
-- [ ] Security > Code scanning alerts page shows results
-- [ ] At least 5 vulnerabilities documented with severity level (critical/high/medium/low) and vulnerability type (e.g., SQL injection, XSS)
+- [ ] At least 2 injection vulnerabilities fixed in the code
+- [ ] Fixes use parameterized queries or equivalent safe patterns — not input sanitization alone
+- [ ] Pull requests opened with clear descriptions of the vulnerability and remediation
+- [ ] Copilot Autofix tried on at least one alert (click "Generate fix" in the Security tab)
+- [ ] Fixed alerts show as resolved in Security → Code scanning alerts
+
+## Copilot Tips
+
+- Highlight the vulnerable query and ask: *"This query is vulnerable to SQL injection. Rewrite it using parameterized queries compatible with the Sequelize ORM already in use here."*
+- Ask: *"What's the difference between input sanitization and parameterization, and why is parameterization the right fix here?"*
+- Use Copilot Autofix in the Security tab — click an alert and hit **Generate fix** to see its proposed remediation, then review and refine it.
+
+**Power move:** If you've done C-00, create a custom Copilot agent that's instructed to always suggest parameterized queries when it sees raw string concatenation in SQL context.
 
 ## Learning Resources
 
-- [About code scanning with CodeQL](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)
-- [Configuring advanced setup for code scanning](https://docs.github.com/en/code-security/code-scanning/enabling-code-scanning/configuring-advanced-setup-for-code-scanning)
+- [OWASP: SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection)
+- [About Copilot Autofix for code scanning](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)
+- [OWASP SQL Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 - [Managing code scanning alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
-- [CodeQL query suites](https://docs.github.com/en/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)

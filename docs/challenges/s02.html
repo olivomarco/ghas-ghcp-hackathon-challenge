@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S-02: Fix Vulnerabilities with Copilot — GHAS Hackathon</title>
+  <title>S-02: Fix XSS &amp; Unsafe Output — GHAS Hackathon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,41 +21,51 @@
           <span class="badge badge-security">Security Track</span>
           <span class="badge badge-time"><i data-lucide="clock"></i> 60 min</span>
         </div>
-        <h1>Challenge S-02: Fix Vulnerabilities with Copilot + Autofix</h1>
+        <h1>Challenge S-02: Fix XSS &amp; Unsafe Output</h1>
         <div class="challenge-body">
           <h2>Description</h2>
-          <p>Finding vulnerabilities is step one. Fixing them without breaking the application — that's where it gets interesting.</p>
-          <p>In this challenge, you'll pick at least 3 vulnerabilities from the code scanning alerts you documented in S-01 and fix them. You've got two powerful tools at your disposal: GitHub Copilot in your editor (ask it to explain the vulnerability, suggest a fix, or review your patch) and Copilot Autofix in the Security tab on github.com (hit "Generate fix" on an alert and let it propose a complete remediation).</p>
-          <p>Each fix should go into its own pull request with a clear description of what was wrong and how you addressed it. The goal isn't just to make the alert disappear — it's to understand why the code was vulnerable and why your fix actually solves the problem.</p>
-
-          <div class="power-move">
-            <p><strong>Power move:</strong> If you've done Challenge C-00, consider creating a security-focused custom agent (<code>.github/agents/</code>) that knows about OWASP patterns and the Juice Shop's vulnerability surface. A well-instructed agent can speed up both diagnosis and remediation.</p>
-          </div>
+          <p>Cross-site scripting (XSS) happens when your application takes user-controlled data and includes it in an HTML response without encoding it. The browser can't tell the difference between your markup and the attacker's injected script — it runs both. The result: session hijacking, credential theft, malicious redirects.</p>
+          <p>Juice Shop has XSS vulnerabilities in its frontend and backend. Some are reflected (input immediately echoed back in the response), some are stored (input saved to the database and rendered to other users later). CodeQL has flagged locations where user data flows into HTML output unsanitized. Your job is to find those code paths and add the encoding layer that stops the injection.</p>
+          <p>The fix pattern is usually: encode output before rendering it, or use framework APIs that handle this automatically. The tricky part is understanding <em>which</em> context the data ends up in — HTML body, attribute, JavaScript, URL — because each requires a different encoding strategy.</p>
 
           <h2>Objectives</h2>
           <ul>
-            <li>Select at least 3 vulnerabilities from the code scanning alerts</li>
-            <li>Use GitHub Copilot in your editor to understand and remediate each vulnerability</li>
-            <li>Try Copilot Autofix from the Security tab (click "Generate fix" on an alert) for at least one vulnerability</li>
-            <li>Create pull requests for each fix with descriptive commit messages</li>
+            <li>Filter <strong>Security → Code scanning alerts</strong> for XSS-related alerts</li>
+            <li>Open the affected files and trace the data flow: where does the user input enter, and where does it reach an HTML output?</li>
+            <li>Fix at least 2 XSS vulnerabilities by applying appropriate output encoding or by switching to safe framework APIs</li>
+            <li>Identify whether each vulnerability is reflected or stored, and explain the difference in your PR description</li>
+            <li>Open pull requests with a description of the data flow that was exploitable and how the fix closes it</li>
           </ul>
 
           <h2>Success Criteria</h2>
           <ul class="checklist">
-            <li>At least 3 code scanning vulnerabilities addressed</li>
-            <li>GitHub Copilot used to assist with understanding and fixing vulnerabilities</li>
-            <li>Copilot Autofix tried on at least one alert from the Security tab</li>
-            <li>Pull requests created for each fix with clear descriptions of the vulnerability and the remediation</li>
-            <li>Fixed alerts show as resolved in the Security tab</li>
+            <li>At least 2 XSS vulnerabilities fixed</li>
+            <li>Fixes use output encoding or safe framework APIs — not input filtering alone</li>
+            <li>PR descriptions explain the data flow: source (user input), sink (HTML output), and encoding applied</li>
+            <li>Fixed alerts resolved in Security → Code scanning alerts</li>
+            <li>Application still runs correctly after the fixes (no broken rendering)</li>
           </ul>
+
+          <h2>Copilot Tips</h2>
+          <ul>
+            <li>Highlight the vulnerable code and ask: <em>"This renders user input into HTML without encoding. What's the correct Angular/Node.js safe output API to use here?"</em></li>
+            <li>Ask: <em>"What's the difference between reflected and stored XSS, and which does this code path represent?"</em></li>
+            <li>Ask: <em>"What encoding is needed for data going into an HTML attribute versus HTML body versus a JavaScript string?"</em></li>
+          </ul>
+
+          <div class="power-move">
+            <p><strong>Power move:</strong> Open the running app, trigger the XSS vulnerability manually (try entering <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> in a search or input field), then fix the code and verify the same input is now safely rendered as text.</p>
+          </div>
 
           <h2>Learning Resources</h2>
           <ul class="resource-list">
-            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning" target="_blank" rel="noopener">About Copilot Autofix for code scanning</a></li>
-            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning" target="_blank" rel="noopener">Using GitHub Copilot to fix code scanning alerts</a></li>
-            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository" target="_blank" rel="noopener">Managing code scanning alerts</a></li>
+            <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank" rel="noopener">OWASP: Cross-Site Scripting (XSS)</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP XSS Prevention Cheat Sheet</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning" target="_blank" rel="noopener">About Copilot Autofix</a></li>
+            <li><a href="https://angular.io/guide/security#preventing-cross-site-scripting-xss" target="_blank" rel="noopener">Angular Security: Preventing XSS</a></li>
           </ul>
         </div>
+
         <div class="prev-next" id="prev-next"></div>
       </div>
     </div>

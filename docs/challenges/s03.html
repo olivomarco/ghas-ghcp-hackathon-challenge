@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S-03: Dependabot &amp; Supply Chain — GHAS Hackathon</title>
+  <title>S-03: Fix Broken Access Control — GHAS Hackathon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,35 +21,44 @@
           <span class="badge badge-security">Security Track</span>
           <span class="badge badge-time"><i data-lucide="clock"></i> 45 min</span>
         </div>
-        <h1>Challenge S-03: Dependabot &amp; Supply Chain Security</h1>
+        <h1>Challenge S-03: Fix Broken Access Control</h1>
         <div class="challenge-body">
           <h2>Description</h2>
-          <p>Your own code isn't the only attack surface. Every dependency you pull in — and every dependency <em>those</em> dependencies pull in — is a potential entry point. A single compromised npm package can cascade through thousands of projects overnight. This isn't theoretical; it happens regularly.</p>
-          <p>Dependabot monitors your dependency tree against known vulnerability databases and opens pull requests to update vulnerable packages automatically. In this challenge, you'll enable Dependabot alerts and security updates, review the vulnerabilities it surfaces, and merge real security update PRs.</p>
-          <p>This is the kind of work that separates apps that get breached from apps that don't. Supply chain security is boring right up until the moment it isn't.</p>
+          <p>Broken access control is OWASP's number one web application vulnerability. It occurs when the application fails to enforce that users can only act within their intended permissions. The result: users can read other users' data, modify records they shouldn't own, access admin functionality without authorization, or escalate their own privileges.</p>
+          <p>Juice Shop has multiple access control flaws. Some are insecure direct object references (IDOR) — where the app trusts a user-supplied ID to look up data without checking if that user actually owns it. Others are missing authorization middleware — routes that should require authentication or admin role but don't check. CodeQL flags some of these; others you'll find by reading the routes and thinking about who should and shouldn't be able to call each endpoint.</p>
+          <p>The fix pattern: for every operation that touches user-owned or role-restricted data, verify the requesting user's identity and permissions <em>in the route handler</em>. Don't rely on the frontend to hide links.</p>
 
           <h2>Objectives</h2>
           <ul>
-            <li>Enable Dependabot alerts on your repository</li>
-            <li>Enable Dependabot security updates</li>
-            <li>Review the dependency vulnerabilities Dependabot identifies</li>
-            <li>Merge at least 2 Dependabot security update pull requests</li>
+            <li>Review code scanning alerts related to authorization and access control</li>
+            <li>Open the backend <code>routes/</code> directory and identify at least 2 endpoints with missing or inadequate authorization checks</li>
+            <li>Trace the auth middleware: which routes use it, which ones don't, and which ones use it but still allow unintended access?</li>
+            <li>Fix at least 2 access control vulnerabilities — add ownership checks, role enforcement, or correct middleware application</li>
+            <li>Write a PR description that explains who could have exploited the flaw and what they could have accessed</li>
           </ul>
 
           <h2>Success Criteria</h2>
           <ul class="checklist">
-            <li>Dependabot alerts enabled in repository settings</li>
-            <li>Dependabot security updates enabled</li>
-            <li>Dependency vulnerabilities reviewed in the Security &gt; Dependabot alerts tab</li>
-            <li>At least 2 Dependabot security update PRs merged</li>
+            <li>At least 2 access control vulnerabilities identified and fixed in the route handlers</li>
+            <li>Fixes enforce authorization server-side, not just through UI restrictions</li>
+            <li>PR descriptions explain the access control gap and the enforcement logic added</li>
+            <li>Fixed alerts resolved in Security → Code scanning alerts (where applicable)</li>
+            <li>Application still handles legitimate requests correctly after fixes</li>
+          </ul>
+
+          <h2>Copilot Tips</h2>
+          <ul>
+            <li>Open a route file and ask: <em>"Which of these endpoints are missing authorization middleware? What should each one require?"</em></li>
+            <li>Ask: <em>"This endpoint uses a user ID from the request body to look up data. How can I verify the requesting user actually owns this resource?"</em></li>
+            <li>Ask: <em>"What's the difference between authentication and authorization, and where does this code handle each?"</em></li>
           </ul>
 
           <h2>Learning Resources</h2>
           <ul class="resource-list">
-            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts" target="_blank" rel="noopener">About Dependabot alerts</a></li>
-            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates" target="_blank" rel="noopener">Configuring Dependabot security updates</a></li>
-            <li><a href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates" target="_blank" rel="noopener">Managing pull requests for dependency updates</a></li>
-            <li><a href="https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security" target="_blank" rel="noopener">About supply chain security</a></li>
+            <li><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/" target="_blank" rel="noopener">OWASP: Broken Access Control</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP Authorization Cheat Sheet</a></li>
+            <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP IDOR Prevention Cheat Sheet</a></li>
+            <li><a href="https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository" target="_blank" rel="noopener">Managing code scanning alerts</a></li>
           </ul>
         </div>
         <div class="prev-next" id="prev-next"></div>
