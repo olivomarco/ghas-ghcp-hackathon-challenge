@@ -102,6 +102,11 @@
 **What:** Replaced the `.devcontainer/devcontainer.json` MCR image reference with a local Dockerfile build using `node:20-bookworm`. Added `.devcontainer/Dockerfile`, kept `docker-in-docker` with `moby=false`, and preserved automatic app startup for port forwarding.
 **Why:** The previously configured `mcr.microsoft.com/devcontainers/*` image tags were no longer resolving during Codespaces startup. Building from the official Node image removes that external dependency while preserving the existing devcontainer behavior.
 
+### 2026-05-02T00:00:00Z: S-04 shared repository security signals
+**By:** Trinity (Security Engineer)
+**What:** Challenge S-04 should treat secret scanning alerts, Dependabot alerts, and Dependabot security update PRs as shared repository/default-branch signals in the one-org-repo hackathon model.
+**Why:** Participants work on separate branches in one repository. Secret scanning alerts are not isolated per branch, and Dependabot security update PRs cannot be independently merged by every team for the same dependency update. Participant tasks should focus on reviewing shared alerts, removing secrets from each team's branch, and validating branch changes through pull request checks, annotations, and push protection.
+
 ## Governance
 
 - All meaningful changes require team consensus

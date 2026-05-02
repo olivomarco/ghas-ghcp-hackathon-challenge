@@ -14,14 +14,15 @@ The fix pattern: for every operation that touches user-owned or role-restricted 
 - Open the backend `routes/` directory and identify at least 2 endpoints with missing or inadequate authorization checks
 - Trace the auth middleware: which routes use it, which ones don't, and which ones use it but still allow unintended access?
 - Fix at least 2 access control vulnerabilities — add ownership checks, role enforcement, or correct middleware application
-- Write a PR description that explains who could have exploited the flaw and what they could have accessed
+- Open a pull request to `main` with a description that explains who could have exploited the flaw and what they could have accessed
+- Review the PR CodeQL/code scanning check and annotations for any remaining access control findings
 
 ## Success Criteria
 
 - [ ] At least 2 access control vulnerabilities identified and fixed in route handlers
 - [ ] Fixes enforce authorization server-side, not just through UI restrictions
 - [ ] PR descriptions explain the access control gap and the enforcement logic added
-- [ ] Fixed alerts resolved in Security → Code scanning alerts (where applicable)
+- [ ] PR CodeQL/code scanning checks reviewed, with no remaining annotations for the fixed patterns where applicable
 - [ ] Application still handles legitimate requests correctly after fixes
 
 ## Copilot Tips

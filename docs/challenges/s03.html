@@ -34,7 +34,8 @@
             <li>Open the backend <code>routes/</code> directory and identify at least 2 endpoints with missing or inadequate authorization checks</li>
             <li>Trace the auth middleware: which routes use it, which ones don't, and which ones use it but still allow unintended access?</li>
             <li>Fix at least 2 access control vulnerabilities — add ownership checks, role enforcement, or correct middleware application</li>
-            <li>Write a PR description that explains who could have exploited the flaw and what they could have accessed</li>
+            <li>Open a pull request to <code>main</code> with a description that explains who could have exploited the flaw and what they could have accessed</li>
+            <li>Review the PR CodeQL/code scanning check and annotations for any remaining access control findings</li>
           </ul>
 
           <h2>Success Criteria</h2>
@@ -42,7 +43,7 @@
             <li>At least 2 access control vulnerabilities identified and fixed in the route handlers</li>
             <li>Fixes enforce authorization server-side, not just through UI restrictions</li>
             <li>PR descriptions explain the access control gap and the enforcement logic added</li>
-            <li>Fixed alerts resolved in Security → Code scanning alerts (where applicable)</li>
+            <li>PR CodeQL/code scanning checks reviewed, with no remaining annotations for the fixed patterns where applicable</li>
             <li>Application still handles legitimate requests correctly after fixes</li>
           </ul>
 

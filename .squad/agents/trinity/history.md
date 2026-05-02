@@ -22,3 +22,8 @@
 - Fix: Created `.github/codeql/codeql-config.yml` with `paths-ignore` for `app/build`, `**/*.js.map`, `**/node_modules`, and `app/frontend/dist`.
 - Updated `.github/workflows/codeql.yml` to reference the config via `config-file: ./.github/codeql/codeql-config.yml`.
 - Key files: `.github/workflows/codeql.yml`, `.github/codeql/codeql-config.yml`
+
+### 2026-05-02: S-04 Shared Repo Branch Scenario
+- In one shared organization repository, secret scanning alerts are repo-level/shared and Dependabot alerts/security update PRs are default-branch oriented.
+- S-04 now frames participant work around reviewing shared alerts and validating branch changes through PR checks, annotations, and push protection instead of requiring every team to merge the same Dependabot PRs.
+- Key files: `Student/Challenge-S04.md`, `docs/challenges/s04.html`

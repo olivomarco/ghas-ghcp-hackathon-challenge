@@ -33,17 +33,17 @@
             <li>Filter <strong>Security → Code scanning alerts</strong> to show injection-related alerts (search for <code>sql</code> or <code>injection</code>)</li>
             <li>Open each affected file in your editor and read the vulnerable code path with Copilot's help</li>
             <li>Fix at least 2 injection vulnerabilities by replacing string concatenation with parameterized queries or ORM-safe alternatives</li>
-            <li>Open a pull request for each fix with a description of: what was wrong, what an attacker could have done, and how the fix addresses it</li>
-            <li>Verify the fixed alerts are resolved in the Security tab</li>
+            <li>Open a pull request to <code>main</code> for each fix with a description of: what was wrong, what an attacker could have done, and how the fix addresses it</li>
+            <li>Review the PR CodeQL/code scanning check and annotations to confirm the fixed pattern is no longer flagged on your branch</li>
           </ul>
 
           <h2>Success Criteria</h2>
           <ul class="checklist">
             <li>At least 2 injection vulnerabilities fixed in the code</li>
             <li>Fixes use parameterized queries or equivalent safe patterns — not input sanitization alone</li>
-            <li>Pull requests opened with clear descriptions of the vulnerability and remediation</li>
+            <li>Pull requests to <code>main</code> opened with clear descriptions of the vulnerability and remediation</li>
             <li>Copilot Autofix tried on at least one alert (click "Generate fix" in the Security tab)</li>
-            <li>Fixed alerts show as resolved in Security → Code scanning alerts</li>
+            <li>PR CodeQL/code scanning checks reviewed, with no remaining annotations for the fixed patterns</li>
           </ul>
 
           <h2>Copilot Tips</h2>

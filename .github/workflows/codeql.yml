@@ -9,24 +9,34 @@
 #   2. It runs a suite of security queries against that database
 #   3. Results appear in the "Security" tab > "Code scanning alerts"
 #
+# HACKATHON MODEL:
+#   Participants work in this shared repository on their own branches, then
+#   validate fixes by opening pull requests back into main.
+#
 # WHEN IT RUNS:
-#   - On every push to the default branch
-#   - On every pull request targeting the default branch
+#   - On every push to main
+#   - On pushes to participant/team work branches
+#   - On every pull request targeting main
+#   - When organizers run it manually from the Actions tab
 #   - On a weekly schedule (catches new vulnerability patterns as queries update)
 #
 # FOR HACKATHON PARTICIPANTS:
-#   This workflow is pre-configured. Once you push it to your repo, CodeQL
-#   will start scanning automatically. Check the "Security" tab for results!
-#   Copilot Autofix is free on public repos and will suggest fixes for alerts.
+#   Use branches like team-{your-team-name}/challenge-work or participant/{name}.
+#   CodeQL findings appear in PR checks and in the Security tab under
+#   "Code scanning alerts". Copilot Autofix can suggest fixes for many alerts.
 # =============================================================================
 
 name: "CodeQL Analysis"
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "team-*/challenge-work"
+      - "participant/**"
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
   schedule:
     # Runs every Monday at 9:00 UTC
     # This catches newly-discovered vulnerability patterns even if code hasn't changed

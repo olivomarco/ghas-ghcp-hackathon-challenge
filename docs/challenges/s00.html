@@ -24,16 +24,16 @@
         <h1>Challenge S-00: Explore the Attack Surface</h1>
         <div class="challenge-body">
           <h2>Description</h2>
-          <p>Before you fix anything, you need to understand what you're dealing with. GHAS is already running on your repository — CodeQL has scanned the codebase, Dependabot has checked every dependency, and secret scanning has reviewed every commit. The results are waiting for you in the Security tab.</p>
+          <p>Before you fix anything, you need to understand what you're dealing with. GHAS is already running on the shared org repository. CodeQL has scanned the default branch, Dependabot has checked every dependency, and secret scanning has reviewed every commit. The shared results are waiting for you in the Security tab.</p>
           <p>Juice Shop is intentionally vulnerable. The alerts you'll see aren't theoretical — they're real exploitable flaws in real code. SQL injection that lets attackers bypass authentication. XSS that can hijack user sessions. Broken access control that exposes data it shouldn't. Your job in this challenge is to read those alerts, open the affected files, and use Copilot to understand exactly what the code is doing wrong.</p>
           <p>This is your reconnaissance phase. Build a mental model of the vulnerability surface so the fix challenges that follow have real context.</p>
           <blockquote>
-            <p><strong>Before this challenge:</strong> Make sure your organizer has completed the <a href="../prerequisites.html#organizer-setup">Organizer Setup</a> and that you've created your team branch (see <a href="../prerequisites.html#participant-setup">Participant Setup</a>). The security alerts live on the shared org repo — navigate there on github.com to see them.</p>
+            <p><strong>Before this challenge:</strong> Make sure your organizer has completed the <a href="../prerequisites.html#organizer-setup">Organizer Setup</a> and that you've created your team branch (see <a href="../prerequisites.html#participant-setup">Participant Setup</a>). The Security tab is shared and default-branch oriented. Your branch fixes will be validated later through PR CodeQL checks and code scanning annotations.</p>
           </blockquote>
 
           <h2>Objectives</h2>
           <ul>
-            <li>Navigate to <strong>Security → Code scanning alerts</strong> on your fork and review all open alerts</li>
+            <li>Navigate to <strong>Security → Code scanning alerts</strong> in the shared org repo and review the open default-branch alerts</li>
             <li>Open at least 5 alerts and read the full alert detail — location, description, and the code path that triggers it</li>
             <li>For each alert, open the affected file in your editor and ask Copilot Chat: <em>"What does this code do wrong, and how could an attacker exploit it?"</em></li>
             <li>Group your alerts by vulnerability class (injection, XSS, access control, secrets, etc.) to plan your fix order</li>

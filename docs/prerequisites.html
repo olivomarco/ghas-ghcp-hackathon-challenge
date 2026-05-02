@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prerequisites — GHAS &amp; Copilot Hackathon</title>
-  <meta name="description" content="Set up your repository, development environment, and GitHub Advanced Security features before starting the security challenges.">
+  <meta name="description" content="Set up the shared org repository, participant branches, and GitHub Advanced Security validation flow before starting the security challenges.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,18 +34,18 @@
       <span style="color:var(--accent-amber)">Organizer Setup</span> — Done once, before the event
     </h2>
 
-    <!-- Org Step 1: Fork to org -->
+    <!-- Org Step 1: Create shared org repo -->
     <section class="feature-section">
-      <h2><span style="color:var(--accent-amber)">O-1</span> — Fork the Repository into a GitHub Organization</h2>
+      <h2><span style="color:var(--accent-amber)">O-1</span> — Create the Shared Repository in a GitHub Organization</h2>
       <ol>
         <li>
           Go to the upstream hackathon repository on github.com.
         </li>
         <li>
-          Click <strong>Fork</strong> and, when asked where to fork to, select the <strong>organization</strong> you're using for the event (not your personal account). Give it a meaningful name, e.g. <code>ghas-hackathon-2026</code>.
+          Create one copy of the repository in the <strong>organization</strong> you're using for the event, not in a personal account. Give it a meaningful name, e.g. <code>ghas-hackathon-2026</code>.
         </li>
         <li>
-          Make sure the fork is <strong>public</strong>. GitHub Advanced Security features (CodeQL, secret scanning, Dependabot) are free on public repositories. A private repo requires a paid GHAS license.
+          Make sure the shared repo is <strong>public</strong>. GitHub Advanced Security features (CodeQL, secret scanning, Dependabot) are free on public repositories. A private repo requires a paid GHAS license.
         </li>
         <li>
           Share the org repo URL with all participants. This is the single shared repo everyone will work in.
@@ -64,14 +64,11 @@
           <ul>
             <li><strong>Require a pull request before merging</strong> — set required approvals to <strong>1</strong></li>
             <li><strong>Require status checks to pass before merging</strong> — add the <strong>CodeQL</strong> check once it has run at least once</li>
-            <li><strong>Do not allow bypassing the above settings</strong> (optional but recommended)</li>
+            <li><strong>Do not allow bypassing the above settings</strong></li>
           </ul>
         </li>
         <li>Save the rule. From this point on, <code>main</code> is protected and all participant work must go through PRs.</li>
       </ol>
-      <blockquote>
-        <p><strong>Tip:</strong> You may also want to set a branch naming convention, e.g. <code>team-{name}/challenge-{id}</code>, so PRs are easy to track per team.</p>
-      </blockquote>
     </section>
 
     <!-- Org Step 3: Enable GHAS -->
@@ -108,7 +105,7 @@
     <section class="feature-section">
       <h2><span style="color:var(--accent-amber)">O-5</span> — Verify the Org Repo Is Ready</h2>
       <ul class="checklist">
-        <li>Repo forked into the org and is public</li>
+        <li>Shared repo created in the org and is public</li>
         <li>Main branch protection rule active — direct pushes blocked</li>
         <li>GitHub Advanced Security enabled</li>
         <li>Dependabot alerts and security updates turned on</li>
@@ -127,8 +124,8 @@
 
     <!-- Part Step 1: Clone & branch -->
     <section class="feature-section">
-      <h2><span style="color:var(--accent-green)">P-1</span> — Clone the Org Repo &amp; Create Your Team Branch</h2>
-      <p>You will <strong>not</strong> fork the repository. All teams work in the same org repo, each on their own branch.</p>
+      <h2><span style="color:var(--accent-green)">P-1</span> — Clone the Org Repo &amp; Create Your Branch</h2>
+      <p>You will <strong>not</strong> fork the repository. Your organizer provides one shared org repo. Each team or participant works from their own branch created from <code>main</code>.</p>
       <ol>
         <li>
           Get the org repo URL from your organizer (e.g. <code>https://github.com/your-org/ghas-hackathon-2026</code>).
@@ -137,8 +134,9 @@
           Clone it locally or open a Codespace from the org repo (see P-2 below).
         </li>
         <li>
-          Create a branch for your team from <code>main</code>. Use a consistent naming pattern your organizer specifies — e.g.:
+          Create a branch for your team from <code>main</code>. Recommended pattern:
           <pre><code class="language-bash">git checkout -b team-{your-team-name}/challenge-work</code></pre>
+          Individual participants can use <code>participant/{your-name-or-team}</code> instead.
         </li>
         <li>
           Push the branch immediately so it's visible on github.com:
@@ -146,7 +144,7 @@
         </li>
       </ol>
       <blockquote>
-        <p><strong>Main is protected.</strong> You cannot push directly to <code>main</code>. All your fixes go on your team branch and get merged via pull request.</p>
+        <p><strong>Main is protected.</strong> You cannot push directly to <code>main</code>. Push your branch and open pull requests back to <code>main</code> to validate GHAS/code scanning results.</p>
       </blockquote>
     </section>
 
@@ -156,11 +154,11 @@
       <p>Choose one of the following:</p>
       <ul>
         <li>
-          <strong>GitHub Codespaces (recommended)</strong>: In the org repo on github.com, click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong>. Once the container is ready, switch to your team branch:
+          <strong>GitHub Codespaces (recommended)</strong>: In the org repo on github.com, click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong>. Once the container is ready, switch to your branch:
           <pre><code class="language-bash">git checkout team-{your-team-name}/challenge-work</code></pre>
         </li>
         <li>
-          <strong>Local dev container</strong>: Clone the org repo, open the folder in VS Code, click <strong>Reopen in Container</strong> when prompted (requires Docker Desktop), then create and switch to your team branch.
+          <strong>Local dev container</strong>: Clone the org repo, open the folder in VS Code, click <strong>Reopen in Container</strong> when prompted (requires Docker Desktop), then create and switch to your branch.
         </li>
       </ul>
       <p>Once in your environment, start the application:</p>
@@ -172,11 +170,14 @@
     <section class="feature-section">
       <h2><span style="color:var(--accent-green)">P-3</span> — Verify Your Setup</h2>
       <ul class="checklist">
-        <li>Team branch created from <code>main</code> and pushed to the org repo</li>
+        <li>Your branch was created from <code>main</code> and pushed to the org repo</li>
         <li>Dev environment running — Juice Shop loads at port 3000</li>
-        <li>Security → Code scanning alerts shows results in the org repo</li>
+        <li>Security → Code scanning alerts shows the shared repo results from the default branch</li>
         <li>You can see Dependabot alerts under Security → Dependabot alerts</li>
       </ul>
+      <blockquote>
+        <p><strong>How validation works:</strong> The Security tab is repo-level and default-branch oriented. When you fix a vulnerability on your branch, open a pull request to <code>main</code> and review the CodeQL/code scanning check, annotations, and any PR alerts.</p>
+      </blockquote>
     </section>
 
     <!-- Next Steps -->

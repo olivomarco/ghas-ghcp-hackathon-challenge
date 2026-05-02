@@ -72,7 +72,7 @@
         <div class="track-icon" style="background:var(--accent-green-dim); color:var(--accent-green);"><i data-lucide="shield-check"></i></div>
         <h2>Security Track</h2>
       </div>
-      <p style="margin-bottom:1.5rem; color:var(--text-muted);">All GHAS features (CodeQL, Dependabot, secret scanning) are pre-configured. Complete the <a href="prerequisites.html">Prerequisites</a> before starting this track, then focus on reading, understanding, and fixing real vulnerabilities in the code.</p>
+      <p style="margin-bottom:1.5rem; color:var(--text-muted);">All GHAS features (CodeQL, Dependabot, secret scanning) are pre-configured in the shared org repo. Complete the <a href="prerequisites.html">Prerequisites</a> before starting this track, then focus on reading shared alerts, fixing real vulnerabilities on your branch, and validating those fixes through PR checks.</p>
       <div class="challenge-grid">
         <a href="challenges/s00.html" class="card challenge-card card-link" data-track="security">
           <div class="card-header"><span class="challenge-label">S-00</span><span class="badge badge-time">30 min</span></div>
@@ -171,8 +171,7 @@
     <section class="info-box">
       <h3>Recommended Order</h3>
       <p>Start with <strong>C-00 (Copilot Customization)</strong>. Setting up your repository instructions, agents, and prompt files first means Copilot will be genuinely smarter for every challenge that follows — better suggestions, better explanations, fewer generic responses.</p>
-      <p>Before diving into the Security track, complete the <a href="prerequisites.html"><strong>Prerequisites</strong></a> — fork the repo, enable GHAS features, and trigger the first CodeQL scan. This is a one-time setup, not a challenge.</p>
-      <p>Then work through the <strong>Security track</strong> (S-00 through S-05). Each challenge focuses on a specific vulnerability class: read what CodeQL found, understand the code with Copilot's help, write the fix, and verify the alert resolves. You'll be writing code, not clicking settings.</p>
+      <p>Once your Copilot is tuned, complete the <a href="prerequisites.html"><strong>Prerequisites</strong></a> by joining the shared org repo and creating your own branch from <code>main</code>. GHAS setup and the first scan are handled by the organizer. Then work through the <strong>Security track</strong> (S-00 through S-05): read the shared default-branch alerts, understand them with Copilot's help, write fixes on your branch, and validate the results through PR CodeQL checks and code scanning annotations. These are developer challenges, not admin tasks.</p>
       <p>Once security is rolling, split into <strong>Frontend</strong> and <strong>Backend</strong> — these two tracks run in parallel. Pick the one that matches your strengths, or tackle both if you're feeling ambitious.</p>
     </section>
 
@@ -180,9 +179,11 @@
     <section class="info-box" style="margin-top:1.5rem;">
       <h3>Ground Rules</h3>
       <ul>
-        <li><strong>GitHub Copilot is your pair programmer.</strong> Use it everywhere — in your editor, in the terminal, in chat. The more you use it, the more you'll get out of this.</li>
-        <li><strong>GitHub Advanced Security features live on github.com.</strong> Configure and review them in your repository's Settings and Security tabs.</li>
-        <li><strong>Each challenge has clear success criteria.</strong> Check them off as you go.</li>
+        <li><strong>GitHub Copilot is your pair programmer.</strong> Use it everywhere — in your editor, in the terminal, in chat. Ask it questions. Let it generate code. Challenge its suggestions. The more you use it, the more you'll get out of this.</li>
+        <li><strong>Work on your own branch, not main.</strong> Use <code>team-{your-team-name}/challenge-work</code> for teams, or <code>participant/{your-name-or-team}</code> for individual participants. Push your branch and open pull requests back to <code>main</code>. Main is protected; direct participant pushes are blocked.</li>
+        <li><strong>Security alerts are shared at the repo level.</strong> The Security tab shows repository alerts, mainly from <code>main</code> and the shared repo configuration. It is not a separate alert dashboard for each participant branch.</li>
+        <li><strong>PR checks are your validation loop.</strong> For branch fixes, open a pull request to <code>main</code> and review the CodeQL/code scanning check, annotations, and any alerts shown on the PR before you mark the challenge complete.</li>
+        <li><strong>Each challenge has clear success criteria.</strong> Check them off as you go. If you hit all the checkboxes, you nailed it.</li>
       </ul>
     </section>
   </main>

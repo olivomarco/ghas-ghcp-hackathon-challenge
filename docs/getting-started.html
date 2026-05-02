@@ -37,7 +37,7 @@
         <li>Basic familiarity with JavaScript/TypeScript and web applications</li>
       </ul>
       <blockquote>
-        <p><strong>Note:</strong> You will <strong>not</strong> fork the repository. Your organizer has set up a shared org repo. You'll create a team branch from <code>main</code> and do all your work there. See the <a href="prerequisites.html">Prerequisites</a> page for the full setup breakdown.</p>
+        <p><strong>Note:</strong> You will <strong>not</strong> fork the repository. Your organizer provides one shared org repo. Create your own branch from <code>main</code>, push it to the org repo, and open pull requests back to <code>main</code> so GHAS/code scanning can validate your changes. Use <code>team-{your-team-name}/challenge-work</code> for teams, or <code>participant/{your-name-or-team}</code> for individual participants.</p>
       </blockquote>
     </section>
 
@@ -49,7 +49,7 @@
         <li>Go to the org repo your organizer shared with you on github.com</li>
         <li>Click the green <strong>Code</strong> button → <strong>Codespaces</strong> → <strong>Create codespace on main</strong></li>
         <li>Wait for the dev container to build and dependencies to install</li>
-        <li>Open a terminal, create your team branch, and start the app:
+        <li>Open a terminal, create your branch, and start the app:
           <pre><code class="language-bash">git checkout -b team-{your-team-name}/challenge-work
 git push -u origin team-{your-team-name}/challenge-work
 cd app && npm start</code></pre>
@@ -66,7 +66,7 @@ cd app && npm start</code></pre>
         <li><strong>Clone</strong> the org repo (do not fork it)</li>
         <li>Open the folder in VS Code</li>
         <li>When prompted, click <strong>Reopen in Container</strong> (requires Docker Desktop running)</li>
-        <li>Create your team branch and start the app:
+        <li>Create your branch and start the app:
           <pre><code class="language-bash">git checkout -b team-{your-team-name}/challenge-work
 git push -u origin team-{your-team-name}/challenge-work
 cd app && npm start</code></pre>
@@ -93,7 +93,7 @@ cd app && npm start</code></pre>
     <!-- Next Steps -->
     <section style="text-align:center; padding:3rem 0;">
       <h2 class="text-gradient">Ready to begin?</h2>
-      <p style="margin-bottom:1.5rem;">Next, complete the Prerequisites to enable GHAS on your fork, then start with C-00.</p>
+      <p style="margin-bottom:1.5rem;">Next, complete the participant prerequisites in the shared org repo, then start with C-00.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <a href="prerequisites.html" class="btn btn-primary">Set Up Prerequisites →</a>
         <a href="challenges/c00.html" class="btn btn-secondary">Start with C-00</a>

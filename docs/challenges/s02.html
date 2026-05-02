@@ -34,7 +34,8 @@
             <li>Open the affected files and trace the data flow: where does the user input enter, and where does it reach an HTML output?</li>
             <li>Fix at least 2 XSS vulnerabilities by applying appropriate output encoding or by switching to safe framework APIs</li>
             <li>Identify whether each vulnerability is reflected or stored, and explain the difference in your PR description</li>
-            <li>Open pull requests with a description of the data flow that was exploitable and how the fix closes it</li>
+            <li>Open pull requests to <code>main</code> with a description of the data flow that was exploitable and how the fix closes it</li>
+            <li>Review the PR CodeQL/code scanning check and annotations for the changed files</li>
           </ul>
 
           <h2>Success Criteria</h2>
@@ -42,7 +43,7 @@
             <li>At least 2 XSS vulnerabilities fixed</li>
             <li>Fixes use output encoding or safe framework APIs — not input filtering alone</li>
             <li>PR descriptions explain the data flow: source (user input), sink (HTML output), and encoding applied</li>
-            <li>Fixed alerts resolved in Security → Code scanning alerts</li>
+            <li>PR CodeQL/code scanning checks reviewed, with no remaining annotations for the fixed patterns</li>
             <li>Application still runs correctly after the fixes (no broken rendering)</li>
           </ul>
 

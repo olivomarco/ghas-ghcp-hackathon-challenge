@@ -14,14 +14,15 @@ The fix pattern is usually: encode output before rendering it, or use framework 
 - Open the affected files and trace the data flow: where does user input enter, and where does it reach HTML output?
 - Fix at least 2 XSS vulnerabilities by applying appropriate output encoding or switching to safe framework APIs
 - Identify whether each vulnerability is reflected or stored, and explain the difference in your PR description
-- Open pull requests with a description of the data flow that was exploitable and how the fix closes it
+- Open pull requests to `main` with a description of the data flow that was exploitable and how the fix closes it
+- Review the PR CodeQL/code scanning check and annotations for the changed files
 
 ## Success Criteria
 
 - [ ] At least 2 XSS vulnerabilities fixed
 - [ ] Fixes use output encoding or safe framework APIs — not input filtering alone
 - [ ] PR descriptions explain the data flow: source (user input), sink (HTML output), and encoding applied
-- [ ] Fixed alerts resolved in Security → Code scanning alerts
+- [ ] PR CodeQL/code scanning checks reviewed, with no remaining annotations for the fixed patterns
 - [ ] Application still renders correctly after the fixes
 
 ## Copilot Tips
