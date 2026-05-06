@@ -71,9 +71,23 @@
       </ol>
     </section>
 
-    <!-- Org Step 3: Enable GHAS -->
+    <!-- Org Step 3: Enable Codespaces -->
     <section class="feature-section">
-      <h2><span style="color:var(--accent-amber)">O-3</span> — Enable GitHub Advanced Security</h2>
+      <h2><span style="color:var(--accent-amber)">O-3</span> — Enable GitHub Codespaces for the Organization</h2>
+      <p>Participants use Codespaces as their recommended dev environment. Codespaces must be explicitly enabled at the organization level before anyone can create one from the repo.</p>
+      <ol>
+        <li>Go to your <strong>GitHub organization page</strong> → <strong>Settings</strong> → <strong>Codespaces</strong>.</li>
+        <li>Under <strong>Codespaces access</strong>, set it to <strong>Allow for all members</strong> (or <strong>Allow for selected members</strong> if you want to restrict to registered participants).</li>
+        <li>Optionally, set a <strong>spending limit</strong> under your org's billing settings to avoid unexpected charges. Free-tier GitHub accounts get 60 core-hours/month at no cost; for a short hackathon this is usually sufficient.</li>
+      </ol>
+      <blockquote>
+        <p><strong>Note:</strong> If Codespaces is not enabled, participants will see no option to create one from the repo's <strong>Code</strong> button and will need to fall back to a local dev container. Enable it before the event starts.</p>
+      </blockquote>
+    </section>
+
+    <!-- Org Step 4: Enable GHAS -->
+    <section class="feature-section">
+      <h2><span style="color:var(--accent-amber)">O-4</span> — Enable GitHub Advanced Security</h2>
       <p>Navigate to the org repo on github.com. Go to <strong>Settings → Code security and analysis</strong> and enable the following:</p>
       <ol>
         <li><strong>GitHub Advanced Security</strong> — the top-level toggle that unlocks all features below.</li>
@@ -86,9 +100,9 @@
       </ol>
     </section>
 
-    <!-- Org Step 4: Trigger first CodeQL scan -->
+    <!-- Org Step 5: Trigger first CodeQL scan -->
     <section class="feature-section">
-      <h2><span style="color:var(--accent-amber)">O-4</span> — Trigger the First Code Scan</h2>
+      <h2><span style="color:var(--accent-amber)">O-5</span> — Trigger the First Code Scan</h2>
       <p>Trigger the initial CodeQL analysis so alerts are ready before participants arrive. Scans typically take 5–10 minutes.</p>
       <ol>
         <li>Go to <strong>Actions</strong> in the org repo.</li>
@@ -101,12 +115,13 @@
       </blockquote>
     </section>
 
-    <!-- Org Step 5: Verify -->
+    <!-- Org Step 6: Verify -->
     <section class="feature-section">
-      <h2><span style="color:var(--accent-amber)">O-5</span> — Verify the Org Repo Is Ready</h2>
+      <h2><span style="color:var(--accent-amber)">O-6</span> — Verify the Org Repo Is Ready</h2>
       <ul class="checklist">
         <li>Shared repo created in the org and is public</li>
         <li>Main branch protection rule active — direct pushes blocked</li>
+        <li>Codespaces enabled for org members</li>
         <li>GitHub Advanced Security enabled</li>
         <li>Dependabot alerts and security updates turned on</li>
         <li>CodeQL workflow has run at least once — Security → Code scanning alerts shows results</li>
